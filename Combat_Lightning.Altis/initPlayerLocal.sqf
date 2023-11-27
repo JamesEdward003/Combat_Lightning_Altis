@@ -59,9 +59,9 @@ call compile preprocessFileLineNumbers "briefing.sqf";
         	
 call compile preprocessFileLineNumbers "bon_recruit_units\init.sqf";
 
-call compile preprocessFileLineNumbers "CtrlT_TeleportPlayer.sqf";
+call compile preprocessFileLineNumbers "Alt_TeleportPlayer.sqf";
 
-call compile preprocessFileLineNumbers "AltT_TeleportGroup.sqf";
+call compile preprocessFileLineNumbers "Alt_TeleportGroup.sqf";
 
 call compile preprocessFileLineNumbers "mortarBag.sqf";
 

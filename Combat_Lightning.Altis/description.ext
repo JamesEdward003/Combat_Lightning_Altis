@@ -388,7 +388,7 @@ class Params
 	    texts[] = {"Disabled","Enabled"};
 	    default = 1;
        	file = "OnGroupIcon.sqf";
-        isGlobal = 2;
+        isGlobal = 1;
 	};
     class BI_CP_IntroCam
     {
@@ -397,6 +397,15 @@ class Params
         texts[] = {"Disabled","Enabled - Intro","Enabled - Shift-Keypad O"};
         default = 1;
         file = "predicam\predicam_init.sqf";
+        isGlobal = 1;
+    };
+    class BI_CP_UAVTV
+    {
+        title = "UAVTV";
+        values[] = {1, 2, 3};
+        texts[] = {"Disabled","Enabled - Intro","Enabled - Alt-Keypad O"};
+        default = 1;
+        file = "predicam\uavtv_init.sqf";
         isGlobal = 1;
     };
     class BI_CP_Kestrel
@@ -422,7 +431,7 @@ class Params
         title = "CamOldReWrite";
         values[] = {1, 2, 3};
         texts[] = {"Disabled","Enabled - Intro","Enabled - Shift-Keypad O"};
-        default = 2;
+        default = 1;
         file = "predicam\CameraOld_init.sqf";
         isGlobal = 1;
     };
@@ -458,7 +467,7 @@ class Params
         title = "Respawn (for single player use only)";
         texts[] = {"Disabled","Player Only"};
         values[] = {1,2};
-        default = 2;
+        default = 1;
         file = "respawn.sqf";
         isGlobal = 1;
     };
@@ -648,7 +657,7 @@ class CfgHints
            displayNameShort = "Base Manager";
            description = "Base Manager Information";
            		tip = "Mapclick %11 to teleport your squad to a custom location.";
-					arguments[] = {{"Keyboard Alt - T"}};
+					arguments[] = {{"Keyboard Alt - Home"}};
        };
 				image = "\path\image_ca.paa";
 				noImage = true;

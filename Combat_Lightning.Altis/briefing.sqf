@@ -45,12 +45,12 @@ SIR_fnc_Intel_1 = {
 	[
 		["title","Combat Lightning"],
 		["meta",["Jim Ed Renfro",[2035,2,24,11,38],"CET"]],
-		["textbold","Stealthy After Nightfall Might Be Just The Ticket!"],
+		["textbold","Stealth After Nightfall Might Be Just The Ticket!"],
 		["image",["\A3\Ui_F_Curator\Data\Logos\arma3_curator_artwork.jpg","Combat Lightning"]],
 		["box",["\a3\Missions_F_Orange\Data\Img\Faction_IDAP_overview_CA.paa","Combat Lightning will turn you on!"]],
-		["text","Ultimate challenge...least amount of casualties possible. E Pluribus Unum!"],
+		["text","Get a load of THIS action!!!"],
 		["textlocked",["Have a hankering to shoot up town?","STAY HOME PLEASE"]],
-		["author",["Hq8EHMyUsC.paa","Jim Ed Renfro is a Make Love Not War Soldier"]]
+		["author",["Hq8EHMyUsC.paa<br/>\A3\Ui_f\data\GUI\Cfg\UnitInsignia\111thID_ca.paa","Jim Ed Renfro is a Make Arma Not War Soldier"]]
 	]
 ] call BIS_fnc_showAANArticle;
 };

@@ -1,6 +1,11 @@
 // "init.sqf" //
+uav_west=objNull;publicVariable "uav_west";
+uav_east=objNull;publicVariable "uav_east";
+uav_guer=objNull;publicVariable "uav_guer";
+uav_civ=objNull;publicVariable "uav_civ";
+myLeaflet=objNull;publicVariable "myLeaflet";
 
-[playerSide, "HQ"] commandChat "Initiating v2023.11.10";
+[playerSide, "HQ"] commandChat "Initiating v2023.11.18";
 
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
@@ -9,56 +14,63 @@ addMissionEventHandler ["EntityKilled", {
   _killer addScore 100;
 }];
 
-if (isServer) then {
-  addMissionEventHandler ["EntityKilled", { 
-    params ["_killed", "_killer", "_instigator"];
-    _killed setVariable ["LoadoutDone", nil];
-  }];
-  addMissionEventHandler ["EntityRespawned", { 
-    params ["_newEntity", "_oldEntity"];
-    _newEntity setUnitLoadout (_oldEntity getVariable "loadout");
-  }];
-  addMissionEventHandler ["EntityCreated", {
-    params ["_entity"];
-    if ((typeOf _entity isEqualTo "B_Medic_F") or (typeOf _entity isEqualTo "B_Soldier_LAT_F")) then {
-    _entity execVM "SettingsAdjustments.sqf";
-    _entity execVM "LoadoutAdjustments.sqf";
-    _entity execVM "Regen_Health.sqf";
-    [_entity] call fnc_addFirstAidKitsAndMags;};
-  }];
-	addMissionEventHandler ["EntityCreated", {
-		params ["_entity"];
-		if ((_entity isKindOf "CAR") OR (_entity isKindOf "TANK") OR (_entity isKindOf "AIR")) then {
-			[_entity] execVM "ParamsPlus\vehicleMarker.sqf";
-			[_entity] execVM "ParamsPlus\heliBombs.sqf";
-			_entity setVehicleAmmo 1;
-			_entity setFuel 1;
-			_entity setAmmoCargo 1;
-			_entity setRepairCargo 1;
-			_entity setFuelCargo 1;
-			_entity addEventHandler ["GetOut", {
-				params ["_vehicle", "_role", "_unit", "_turret", "_isEject"];
-				_unit setBehaviour "COMBAT";_unit allowDamage FALSE;
-				[_unit,_vehicle] spawn {waitUntil {((_this select 0) distance (_this select 1)) > 20;}; (_this select 0) allowDamage TRUE;};
-				if (isPlayer _unit) then {["<t color='#FFCC33' size='1.5'>20 METER SAFE AREA!<br />STAY CLOSE TO THE VEHICLE!</t>",0,.01,24,1] spawn BIS_fnc_dynamicText;
-				titleText ['<t color=''#ffdd22'' size=''1.5''>20 METER SAFE AREA!</t><br/>***********', 'PLAIN DOWN', -1, true, true];
-				[_unit, "20 meter safe area around vehicle in effect!"] remoteExecCall ["commandChat", 0]};
-			}];
-		};	
-	}];
-	addMissionEventHandler ["EntityCreated", {
-		params ["_entity"];
-		if (_entity isKindOf "UAV") then {
-			[_entity] execVM "ParamsPlus\vehicleMarker.sqf";
-			[_entity] execVM "ParamsPlus\heliBombs.sqf";
-			createVehicleCrew _entity;
-		};	
-	}];
- 	addMissionEventHandler ["UAVCrewCreated", {
-		params ["_uav", "_driver", "_gunner"];		
-		hintSilent parseText format ["<t size = '1.5' color = '#FF0000'>UAV Type: %1</t><br/>Driver Type: %2<br/>Gunner Type: %3",typeOf _uav,typeOf _driver,typeOf _gunner];
-	}];
-};
+addMissionEventHandler ["EntityKilled", { 
+  params ["_killed", "_killer", "_instigator"];
+  _killed setVariable ["LoadoutDone", nil];
+}];
+addMissionEventHandler ["EntityRespawned", { 
+  params ["_newEntity", "_oldEntity"];
+  _newEntity setUnitLoadout (_oldEntity getVariable "loadout");
+}];
+addMissionEventHandler ["EntityCreated", {
+  params ["_entity"];
+  if ((typeOf _entity isEqualTo "B_Medic_F") or (typeOf _entity isEqualTo "B_Soldier_LAT_F")) then {
+  _entity execVM "SettingsAdjustments.sqf";
+  _entity execVM "LoadoutAdjustments.sqf";
+  _entity execVM "Regen_Health.sqf";
+  [_entity] call fnc_addFirstAidKitsAndMags;};
+}];
+addMissionEventHandler ["EntityCreated", {
+	params ["_entity"];
+	if ((_entity isKindOf "CAR") OR (_entity isKindOf "TANK") OR (_entity isKindOf "AIR")) then {
+		[_entity] execVM "ParamsPlus\vehicleMarker.sqf";
+		[_entity] execVM "ParamsPlus\heliBombs.sqf";
+		_entity setVehicleAmmo 1;
+		_entity setFuel 1;
+		_entity setAmmoCargo 1;
+		_entity setRepairCargo 1;
+		_entity setFuelCargo 1;
+		_entity addEventHandler ["GetOut", {
+			params ["_vehicle", "_role", "_unit", "_turret", "_isEject"];
+			_unit setBehaviour "COMBAT";_unit allowDamage FALSE;
+			[_unit,_vehicle] spawn {waitUntil {((_this select 0) distance (_this select 1)) > 20;}; (_this select 0) allowDamage TRUE;};
+			if (isPlayer _unit) then {["<t color='#FFCC33' size='1.5'>20 METER SAFE AREA!<br />STAY CLOSE TO THE VEHICLE!</t>",0,.01,24,1] spawn BIS_fnc_dynamicText;
+			titleText ['<t color=''#ffdd22'' size=''1.5''>20 METER SAFE AREA!</t><br/>***********', 'PLAIN DOWN', -1, true, true];
+			[_unit, "20 meter safe area around vehicle in effect!"] remoteExecCall ["commandChat", 0]};
+		}];
+	};	
+}];
+addMissionEventHandler ["EntityCreated", {
+	params ["_entity"];
+	if (_entity isKindOf "UAV") then {
+		[_entity] execVM "ParamsPlus\vehicleMarker.sqf";
+		//[_entity] execVM "ParamsPlus\heliBombs.sqf";
+		//[tv,player] execVM "predicam\liveFeedUAV_init.sqf";
+		createVehicleCrew _entity;
+	};	
+}];
+addMissionEventHandler ["UAVCrewCreated", {
+	params ["_uav", "_driver", "_gunner"];		
+	_uavbpname = switch (playerSide) do
+		{
+			case WEST: 			{uav_west};
+			case EAST: 			{uav_east};
+			case RESISTANCE: 	{uav_guer};
+			case CIVILIAN: 		{uav_civ};
+		};
+	hintSilent parseText format ["<t size = '1.5' color = '#FF0000'>UAV Type: %1</t><br/>Driver Type: %2<br/>Gunner Type: %3<br/>Object From NetId: %4",typeOf _uav,typeOf _driver,typeOf _gunner,_uav call BIS_fnc_netId];
+}];
+
 inGameUISetEventHandler ["Action",
 "
     private _cond = FALSE;

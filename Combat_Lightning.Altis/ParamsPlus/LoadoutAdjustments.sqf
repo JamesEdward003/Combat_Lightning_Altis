@@ -94,7 +94,7 @@ if (isMultiPlayer) then
 {	
 	_unit addEventHandler ["Respawn", {
 		params ["_unit", "_corpse"];
-		_unit execVM "ParamsPlus/LoadoutAdjustments.sqf";
+		_unit execVM "ParamsPlus\LoadoutAdjustments.sqf";
 	}];
 };
 

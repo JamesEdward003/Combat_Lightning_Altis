@@ -12,6 +12,13 @@ _unit addEventHandler ["Respawn", {
 //hint format ["%1",[ configFile >> "CfgVehicles" >> "I_UAV_01_F", true ] call BIS_fnc_returnParents];
 _unit addEventHandler ["WeaponAssembled", { 
 	params ["_unit", "_staticWeapon"];
+	_uavname = switch (playerSide) do
+		{
+			case WEST: 			{uav_west};
+			case EAST: 			{uav_east};
+			case RESISTANCE: 	{uav_guer};
+			case CIVILIAN: 		{uav_civ};
+		};
 	_mag = switch (playerSide) do
 		{
 			case WEST: 			{"1Rnd_Leaflets_West_F"};
@@ -19,6 +26,10 @@ _unit addEventHandler ["WeaponAssembled", {
 			case RESISTANCE: 	{"1Rnd_Leaflets_Guer_F"};
 			case CIVILIAN: 		{"1Rnd_Leaflets_Civ_F"};
 		};
+
+	_UAVnetID = _staticWeapon call BIS_fnc_netId;
+	missionNameSpace setVariable [format ["str %1",_uavname],_UAVnetID,true];
+
 	_staticWeapon setCaptive true;
 	_staticWeapon allowDamage false; 
 	if (_staticWeapon isKindOf "UAV_01_Base_F") then {
@@ -35,12 +46,42 @@ _unit addEventHandler ["WeaponAssembled", {
 	  	false,
 	  	true,
 	  	"",
-	  	"",
+	  	"(alive _target)",
 	  	-1,
 	  	true,
 	  	"",
 	  	""];
-	}}];
+		_unit addAction ["<t color='#00FFFF'>Live TV</t>", {
+			params ["_target", "_caller", "_actionId", "_arguments"];
+			[[_UAVnetID,_caller], "predicam\liveFeedUAV_init.sqf"] remoteExec ["execVM", (_arguments select 0)];
+		},
+	  	[_staticWeapon],
+	  	10,
+	  	false,
+	  	true,
+	  	"",
+	  	"(alive _target)",
+	  	-1,
+	  	true,
+	  	"",
+	  	""];
+		_unit addAction ["<t color='#00FFFF'>Deploy Bombs</t>", {
+			params ["_target", "_caller", "_actionId", "_arguments"];
+			(_arguments select 0) fire "Bomb_Leaflets";
+			[(_arguments select 0), "ParamsPlus\heliBombs.sqf"] remoteExec ["execVM", (_arguments select 0)];
+		},
+	  	[_staticWeapon],
+	  	10,
+	  	false,
+	  	true,
+	  	"",
+	  	"(alive _target)",
+	  	-1,
+	  	true,
+	  	"",
+	  	""];
+		}; 
+	}];
 
 for [{_i= (count _actions)-1},{_i>-1},{_i=_i-1}] do {
 	_params = _unit actionParams (_actions select _i);
@@ -215,24 +256,6 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 	_uavbpname addBackpackCargoGlobal [_uavbpclass, 1];
 	uisleep 0.1;
 
-/*
-	[_this,_uavbpname] spawn {
-		private ["_unit","_uavbpname"];
-		params ["_unit","_uavbpname"];	
-		_unit = _this select 0;
-		_uavbpname = _this select 1;	
-		_unit addAction ["<t color='#00FFFF'>Deploy Leaflets</t>", {
-			params ["_unit","_uavbpname"];	
-			_unit = _this select 0;
-			_uavbpname = _this select 1;
-			_uavbpname addMagazine "1Rnd_Leaflets_West_F";
-			_uavbpname addWeapon "Bomb_Leaflets";
-			uisleep .1;
-			_uavbpname fire "Bomb_Leaflets";
-			[_uavbpname, "Bomb_Leaflets"] remoteExec ["fire", _uavbpname];
-		}];
-	};
-*/
 	_uavbpname addEventHandler ["Killed", {
 		params ["_unit", "_killer", "_instigator", "_useEffects"];
 		{deleteVehicle _x} forEach nearestObjects [_unit, ["logic","HeliH","Weapon_Bag_Base","GroundWeaponHolder"], 10];
@@ -240,6 +263,7 @@ Rally_Point = _unit addAction ["<t color='#00FFFF'>Deploy Rally Point</t>", {(_t
 		{deleteVehicle _x} forEach _objectarray;
 		{deleteMarker _x} forEach allMapMarkers select {(getMarkerType _x == "respawn_inf") inArea [getPos _unit, 10, 10, 0, false, 100];}; 
 		{deleteMarker _x} forEach allMapMarkers select {(getMarkerType _x == _uavbpmrkr) inArea [getPos _unit, 10, 10, 0, false, 100];}; 
+		format ["%1 = nil",_uavbpname];
 		_killer addRating 100;
 	}];
 	_marker = createMarkerLocal [(str _uavbpid),position _uavbpname]; 

@@ -136,9 +136,9 @@ uisleep 1;
 MRLS_1 addEventHandler ["Fired", {
 	private ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner","_t","_eta"];
 	params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
-	_t = ((target distance _projectile) / (speed _projectile) * .55);
+	_t = ((target distance _projectile) / (speed _projectile) * .5);
 	_eta = round _t;
-	[_eta] spawn  { params ["_eta"]; for [{ _i = _eta}, { _i > 0 - 1 }, { _i = _i - 1 }] do {uisleep 1; hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta]}};
+	//[_eta] spawn  { params ["_eta"]; for [{ _i = _eta}, { _i > 0 - 1 }, { _i = _i - 1 }] do {uisleep 1; hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta]}};
 	missionNamespace setVariable ["ETA_Time",_eta];
 	_unit removeEventHandler ["Fired", _thisEventHandler];
 }];
@@ -150,6 +150,7 @@ MRLS_1 addEventHandler ["Fired", {
 	for [{ _i = _eta}, { _i > 0 - 1 }, { _i = _i - 1 }] do
 	{	uisleep 1;
 		_marker setMarkerTextLocal format [" Cruise Missile ETA %1 seconds", _i];
+		hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta];
 		if (_i == 0) then {
 			missionNamespace setVariable ["ETA_Time",nil];
 			playSound3D ["A3\dubbing_f\modules\supports\artillery_accomplished.ogg", _caller];

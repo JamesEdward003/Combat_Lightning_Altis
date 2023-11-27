@@ -29,10 +29,10 @@ if !(("<t color='#00FFFF'>Deploy Bombs</t>") in _array) then {
 		_bombminrange = _this select 3 select 3; // min range
 		_bombmaxrange = _this select 3 select 4; // max range
 
-		_locationTxt = text nearestLocation [getPos _heli, "nameCity"];
+		_locationTxt = text nearestLocation [getPos _heli, ["NameCity","NameCityCapital","NameVillage","NameLocal","NameMarine"]];
 		hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_locationTxt];
 
-		_location = nearestLocation [getPos _heli, "nameCity"];
+		_location = nearestLocation [getPos _heli, ["NameCity","NameCityCapital","NameVillage","NameLocal","NameMarine"]];
 		_locationPos = locationPosition _location;
 
 		[_locationPos] spawn DropBombs;
@@ -56,7 +56,7 @@ if !(("<t color='#00FFFF'>Deploy Bombs</t>") in _array) then {
 			_bomb setVectorUp [0, 9, 0.1];
 		};
 	},
-	[8,200,25,floor (random 50) + 50,floor (random 300) + 100],
+	[8,400,25,floor (random 50) + 50,floor (random 300) + 100],
 	10,
 	false,
 	true,
@@ -86,7 +86,7 @@ _bombcount = _bombselect select 1;
 sleep 5; 
 { 
  _newpos = [_targetPos, _bombminrange, _bombmaxrange, 0, 0, 0, 0] call BIS_fnc_findSafePos; 
- bomb = createVehicle [_bombtype, [(_newpos select 0),(_newpos select 1), 200], [], 0, "CAN_COLLIDE"]; 
+ bomb = createVehicle [_bombtype, [(_newpos select 0),(_newpos select 1), 400], [], 0, "CAN_COLLIDE"]; 
  bomb setVectorUp [0, 9, 0.1];
  uisleep 2; 
 } forEach _bombcount; 

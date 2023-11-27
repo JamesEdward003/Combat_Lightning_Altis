@@ -5,10 +5,10 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=129;
+	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=465;
+		nextID=1773;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=61;
+		nextID=303;
 	};
 	class Camera
 	{
-		pos[]={14633.897,19.675772,16792.902};
-		dir[]={-0.68691909,-0.21026719,0.69565076};
-		up[]={-0.1477394,0.97764391,0.14961737};
-		aside[]={0.71155834,-7.4505806e-009,0.702627};
+		pos[]={14658.87,37.909912,16794.73};
+		dir[]={-0.81612802,-0.22098069,0.53395337};
+		up[]={-0.18491946,0.97527826,0.1209842};
+		aside[]={0.54748851,0,0.83681554};
 	};
 };
 binarizationWanted=0;
@@ -93,15 +93,13 @@ addons[]=
 	"A3_Props_F_Oldman_Items",
 	"A3_Data_F_Curator_Intel",
 	"A3_Structures_F_Heli_Items_Electronics",
-	"A3_Armor_F_Gamma_MBT_02",
-	"A3_Props_F_Destroyer_Military_BriefingRoomScreen",
-	"A3_Props_F_Exp_A_Military_Equipment"
+	"A3_Armor_F_Gamma_MBT_02"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=31;
+		items=29;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -305,20 +303,6 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item29
-		{
-			className="A3_Props_F_Destroyer";
-			name="CFGPATCHES_A3_Props_F_Destroyer";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
-		class Item30
-		{
-			className="A3_Props_F_Exp_A";
-			name="Arma 3 Nexus Update - Decorative and Mission Objects";
-			author="Bohemia Interactive";
-			url="https://www.arma3.com";
-		};
 	};
 };
 dlcs[]=
@@ -330,8 +314,7 @@ dlcs[]=
 	"ORANGE",
 	"Oldman",
 	"Curator",
-	"Heli",
-	"Jets"
+	"Heli"
 };
 randomSeed=12480306;
 class ScenarioData
@@ -453,7 +436,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=123;
+		items=130;
 		class Item0
 		{
 			dataType="Logic";
@@ -10309,6 +10292,23 @@ class Mission
 			};
 			id=436;
 			type="Land_Laptop_Intel_01_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="#(argb,8,8,3)color(0,0,0,0,co)";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 		class Item114
 		{
@@ -10351,24 +10351,6 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14631.279,18.191072,16795.646};
-				angles[]={0,2.3561945,0};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				init="call{this attachTo [desk, [0, 0, .560]];};";
-				name="laptopp2";
-			};
-			id=441;
-			type="Land_Laptop_Intel_02_F";
-		};
-		class Item117
-		{
-			dataType="Object";
-			class PositionInfo
-			{
 				position[]={14630.737,18.191072,16796.17};
 				angles[]={0,2.3561945,0};
 			};
@@ -10381,8 +10363,25 @@ class Mission
 			};
 			id=442;
 			type="Land_Laptop_Intel_01_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="#(argb,8,8,3)color(0,0,0,0,co)";
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
-		class Item118
+		class Item117
 		{
 			dataType="Object";
 			class PositionInfo
@@ -10401,7 +10400,7 @@ class Mission
 			type="Land_FlatTV_01_F";
 			atlOffset=0.00036430359;
 		};
-		class Item119
+		class Item118
 		{
 			dataType="Marker";
 			position[]={21068.811,21.259001,7345.9331};
@@ -10417,7 +10416,7 @@ class Mission
 			id=450;
 			atlOffset=-0.00030517578;
 		};
-		class Item120
+		class Item119
 		{
 			dataType="Object";
 			class PositionInfo
@@ -10576,38 +10575,246 @@ class Mission
 				nAttributes=1;
 			};
 		};
+		class Item120
+		{
+			dataType="Layer";
+			name="Myth's UAV Live Feed Composition";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Layer";
+					name="Live UAV Feed Composition";
+					class Entities
+					{
+						items=1;
+						class Item0
+						{
+							dataType="Layer";
+							name="Live UAV Feed Composition_1";
+							id=480;
+							atlOffset=185.97;
+						};
+					};
+					id=479;
+					atlOffset=185.97;
+				};
+			};
+			id=506;
+			atlOffset=185.97;
+		};
 		class Item121
+		{
+			dataType="Layer";
+			name="Myth's UAV Live Feed Composition";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Layer";
+					name="Live UAV Feed Composition_2";
+					class Entities
+					{
+						items=1;
+						class Item0
+						{
+							dataType="Layer";
+							name="Live UAV Feed Composition_3";
+							id=510;
+							atlOffset=185.97;
+						};
+					};
+					id=509;
+					atlOffset=185.97;
+				};
+			};
+			id=536;
+			atlOffset=185.97;
+		};
+		class Item122
+		{
+			dataType="Layer";
+			name="Outpost Machiavelli";
+			id=805;
+			atlOffset=185.97;
+		};
+		class Item123
+		{
+			dataType="Layer";
+			name="LDF FOB";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Layer";
+					name="IDAP Refugee Camp (Small)";
+					id=809;
+					atlOffset=185.97;
+				};
+			};
+			id=1024;
+			atlOffset=185.97;
+		};
+		class Item124
+		{
+			dataType="Layer";
+			name="LDF FOB";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Layer";
+					name="IDAP Refugee Camp (Small)_1";
+					id=1025;
+					atlOffset=185.97;
+				};
+			};
+			id=1240;
+			atlOffset=185.97;
+		};
+		class Item125
+		{
+			dataType="Layer";
+			name="GAR - ARTY - FOB";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Layer";
+					name="GAR - ARTY - FOB";
+					class Entities
+					{
+						items=1;
+						class Item0
+						{
+							dataType="Layer";
+							name="FOB LIST";
+							class Entities
+							{
+								items=1;
+								class Item0
+								{
+									dataType="Layer";
+									name="ARTI FOB_1";
+									id=1255;
+									atlOffset=185.97;
+								};
+							};
+							id=1254;
+							atlOffset=185.97;
+						};
+					};
+					id=1253;
+					atlOffset=185.97;
+				};
+			};
+			id=1260;
+			atlOffset=185.97;
+		};
+		class Item126
+		{
+			dataType="Layer";
+			name="GAR - ARTY - FOB";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Layer";
+					name="GAR - ARTY - FOB_1";
+					class Entities
+					{
+						items=1;
+						class Item0
+						{
+							dataType="Layer";
+							name="FOB LIST_1";
+							class Entities
+							{
+								items=1;
+								class Item0
+								{
+									dataType="Layer";
+									name="ARTI FOB_2";
+									id=1263;
+									atlOffset=185.97;
+								};
+							};
+							id=1262;
+							atlOffset=185.97;
+						};
+					};
+					id=1261;
+					atlOffset=185.97;
+				};
+			};
+			id=1268;
+			atlOffset=185.97;
+		};
+		class Item127
+		{
+			dataType="Layer";
+			name="Renfro's Outpost Machiavelli ";
+			id=1528;
+			atlOffset=185.97;
+		};
+		class Item128
+		{
+			dataType="Layer";
+			name="LDF FOB";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Layer";
+					name="IDAP Refugee Camp (Small)_2";
+					id=1529;
+					atlOffset=185.97;
+				};
+			};
+			id=1744;
+			atlOffset=185.97;
+		};
+		class Item129
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14621.883,18.026096,16801.674};
+				position[]={14631.28,18.191072,16795.646};
 				angles[]={0,2.3561945,0};
 			};
 			side="Empty";
 			flags=4;
 			class Attributes
 			{
+				init="call{this attachTo [desk, [0, 0, .560]];};";
+				name="laptopp2";
 			};
-			id=463;
-			type="Land_BriefingRoomScreen_01_F";
-		};
-		class Item122
-		{
-			dataType="Object";
-			class PositionInfo
+			id=1768;
+			type="Land_Laptop_Intel_01_F";
+			class CustomAttributes
 			{
-				position[]={14633.152,17.944164,16796.6};
-				angles[]={-0,2.3561945,0};
+				class Attribute0
+				{
+					property="ObjectTextureCustom0";
+					expression="_this setObjectTextureGlobal [0,_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="STRING";
+							value="#(argb,8,8,3)color(0,0,0,0,co)";
+						};
+					};
+				};
+				nAttributes=1;
 			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				init="this setObjectTexture [0, ""#(argb,512,512,1)""];";
-			};
-			id=464;
-			type="Land_Tablet_02_F";
 		};
 	};
 	class Connections

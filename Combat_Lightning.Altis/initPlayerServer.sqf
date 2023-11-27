@@ -314,6 +314,8 @@ kouris execVM "Intel\intel_kouris.sqf";
 
 [BIS_laptop1, localize "STR_A3_Orange_Faction_IDAP_action_article", "\a3\Missions_F_Orange\Data\Img\Showcase_LawsOfWar\action_view_article_ca", "\a3\Missions_F_Orange\Data\Img\Showcase_LawsOfWar\action_view_article_ca", "(_this distance _target < 3) && (isNull (findDisplay 2035))", "isNull (findDisplay 2035)", {}, BIS_holdActionProgress, {BIS_laptop1 say3D "Orange_Read_Article"; [] execVM "\a3\Missions_F_Orange\Campaign\Functions\fn_showCampaignArticle.sqf"}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
 
+//[[displayTV02,displayLaptop02]] execVM "MIL_Mirror\initialise.sqf";
+
 private _toRemoteExec = {  
     laptopHackHoldActionId = [  
 	  	laptopp2,  
@@ -357,7 +359,29 @@ private _toRemoteExec = {
 };  
 [[], _toRemoteExec] remoteExec ["spawn", 0, supph2];   
 //[supph2, radioHackHoldActionId] remoteExec ["BIS_fnc_holdActionRemove", 0];
-
+/*
+private _toRemoteExec = {  
+	tvHackHoldActionId = [  
+		tablet01, 
+		"UAV TV ONE", 
+		"\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\download_ca.paa", 
+		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa", 
+		"_this distance _target < 4", 
+		"_caller distance _target < 4", 
+		{}, 
+		{parseText format["<br/><img size='2' image='\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\download_ca.paa'/><br/><br/><t size='1.5'>UAV TV ONE</t><br/><br/><t size='1.5' color='#FFFF00'>Incomplete</t><br/><t color='#FFFF00'></t><br/><br/><t size='1.25' color='#00FF00'>(%1)  Loading...</t><br/><br/>",round ((_this select 4) * 4.16),name (_this select 1)] remoteExec ["hintSilent"]}, 
+		{parseText format["<br/><img size='2' image='\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\download_ca.paa'/><br/><br/><t size='1.5'>UAV TV ONE</t><br/><br/><t size='1.5' color='#00FF00'>Complete<br/>Check Monitor</t><br/><t color='#00FF00'>(%1)</t><br/><br/><br/><br/>",name (_this select 1)] remoteExec ["hintSilent"]; [tv,_caller] execVM "predicam\liveFeedUAV_init.sqf"; _target say3D "Orange_Access_FM"; sleep 5; "" remoteExec ["hintSilent"]}, 
+		{parseText format["<br/><img size='2' image='\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\download_ca.paa'/><br/><br/><t size='1.5'>UAV TV ONE</t><br/><br/><t size='1.5' color='#FF0000'>Cancelled</t><br/><t color='#FF0000'>(%1)</t><br/><br/><br/><br/>",name (_this select 1)] remoteExec ["hintSilent"]; sleep 5; "" remoteExec ["hintSilent"]}, 
+		[], 
+		12,  
+		0,  
+		false,  
+		false  
+	] call BIS_fnc_holdActionAdd;
+};  
+[[], _toRemoteExec] remoteExec ["spawn", 0, tablet01];   
+//[tv, tvHackHoldActionId] remoteExec ["BIS_fnc_holdActionRemove", 0];
+*/
 /*
 private _toRemoteExec = {  
     laptopHackHoldActionId = [  
