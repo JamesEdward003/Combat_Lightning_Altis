@@ -399,15 +399,6 @@ class Params
         file = "predicam\predicam_init.sqf";
         isGlobal = 1;
     };
-    class BI_CP_UAVTV
-    {
-        title = "UAVTV";
-        values[] = {1, 2, 3};
-        texts[] = {"Disabled","Enabled - Intro","Enabled - Alt-Keypad O"};
-        default = 1;
-        file = "predicam\uavtv_init.sqf";
-        isGlobal = 1;
-    };
     class BI_CP_Kestrel
     {
         title = "Kestrel Flyer";

@@ -51,20 +51,6 @@ _unit addEventHandler ["WeaponAssembled", {
 	  	true,
 	  	"",
 	  	""];
-		_unit addAction ["<t color='#00FFFF'>Live TV</t>", {
-			params ["_target", "_caller", "_actionId", "_arguments"];
-			[[_UAVnetID,_caller], "predicam\liveFeedUAV_init.sqf"] remoteExec ["execVM", (_arguments select 0)];
-		},
-	  	[_staticWeapon],
-	  	10,
-	  	false,
-	  	true,
-	  	"",
-	  	"(alive _target)",
-	  	-1,
-	  	true,
-	  	"",
-	  	""];
 		_unit addAction ["<t color='#00FFFF'>Deploy Bombs</t>", {
 			params ["_target", "_caller", "_actionId", "_arguments"];
 			(_arguments select 0) fire "Bomb_Leaflets";

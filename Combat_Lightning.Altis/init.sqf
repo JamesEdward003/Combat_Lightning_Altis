@@ -55,7 +55,6 @@ addMissionEventHandler ["EntityCreated", {
 	if (_entity isKindOf "UAV") then {
 		[_entity] execVM "ParamsPlus\vehicleMarker.sqf";
 		//[_entity] execVM "ParamsPlus\heliBombs.sqf";
-		//[tv,player] execVM "predicam\liveFeedUAV_init.sqf";
 		createVehicleCrew _entity;
 	};	
 }];
