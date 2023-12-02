@@ -192,7 +192,7 @@ switch (side _caller) do {
 
 		_unit execVM "ParamsPlus\Markers.sqf";
 
-		if ((_BI_CP_loadouts_mtp isEqualTo 1) and (_BI_CP_loadouts_wl isEqualTo 1)) then {_unit setVariable ["LoadoutDone", true];};
+		if (("BI_CP_loadouts_mtp" call BIS_fnc_getParamValue isEqualTo 1) and ("BI_CP_loadouts_wl" call BIS_fnc_getParamValue isEqualTo 1)) then {_unit setVariable ["LoadoutDone", true];};
 
 		_unit addAction ["<t color='#00FFFF'>FirstAidKits And Magazines</t>",BON_RECRUIT_PATH+"FirstAidKitsAndMags.sqf",[],-100,false,true,""];
 
@@ -273,7 +273,7 @@ switch (side _caller) do {
 
 		_unit execVM "ParamsPlus\Markers.sqf";
 
-		if ((_BI_CP_loadouts_mtp isEqualTo 1) and (_BI_CP_loadouts_wl isEqualTo 1)) then {_unit setVariable ["LoadoutDone", true];};
+		if (("BI_CP_loadouts_mtp" call BIS_fnc_getParamValue isEqualTo 1) and ("BI_CP_loadouts_wl" call BIS_fnc_getParamValue isEqualTo 1)) then {_unit setVariable ["LoadoutDone", true];};
 
 		_unit addAction ["<t color='#00FFFF'>FirstAidKits And Magazines</t>",BON_RECRUIT_PATH+"FirstAidKitsAndMags.sqf",[],-100,false,true,""];
 
@@ -354,7 +354,7 @@ switch (side _caller) do {
 
 		_unit execVM "ParamsPlus\Markers.sqf";
 
-		if ((_BI_CP_loadouts_mtp isEqualTo 1) and (_BI_CP_loadouts_wl isEqualTo 1)) then {_unit setVariable ["LoadoutDone", true];};
+		if (("BI_CP_loadouts_mtp" call BIS_fnc_getParamValue isEqualTo 1) and ("BI_CP_loadouts_wl" call BIS_fnc_getParamValue isEqualTo 1)) then {_unit setVariable ["LoadoutDone", true];};
 
 		_unit addAction ["<t color='#00FFFF'>FirstAidKits And Magazines</t>",BON_RECRUIT_PATH+"FirstAidKitsAndMags.sqf",[],-100,false,true,""];
 
@@ -439,7 +439,7 @@ switch (side _caller) do {
 
 		_unit execVM "ParamsPlus\Markers.sqf";
 
-		if ((_BI_CP_loadouts_mtp isEqualTo 1) and (_BI_CP_loadouts_wl isEqualTo 1)) then {_unit setVariable ["LoadoutDone", true];};
+		if (("BI_CP_loadouts_mtp" call BIS_fnc_getParamValue isEqualTo 1) and ("BI_CP_loadouts_wl" call BIS_fnc_getParamValue isEqualTo 1)) then {_unit setVariable ["LoadoutDone", true];};
 
 		_unit addAction ["<t color='#00FFFF'>FirstAidKits And Magazines</t>",BON_RECRUIT_PATH+"FirstAidKitsAndMags.sqf",[],-100,false,true,""];
 

@@ -96,7 +96,7 @@ private _toRemoteExec = {
 [laptopp2, laptopHackHoldActionId] remoteExec ["BIS_fnc_holdActionRemove", 0];
 */
 
-//this setVehiclePosition [[14633.7,16798.5,0.125], ["scout_intel_1","scout_intel_2","scout_intel_3","scout_intel_4"], 0, "CAN_COLLIDE"];[position this, units group this, -1, false, false] execVM "Zen_OccupyHouse.sqf";
+//this setVehiclePosition [[14633.7,16798.5,0.125], ["scout_intel_1","scout_intel_2","scout_intel_3","scout_intel_4"], 0, "CAN_COLLIDE"];
 
 /*
 call{this attachTo [desk, [-.4, .2, .425]];this setDir ((getDir this) + 45);};[this, 

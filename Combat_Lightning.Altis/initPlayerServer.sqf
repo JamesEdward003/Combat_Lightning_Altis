@@ -48,9 +48,9 @@ addMissionEventHandler ["MapSingleClick", {
 			case resistance: 	{hpad3};
 			case civilian:		{hpad5};
 		};
-	    if (isNull hpad) then {
+	    if (isNull _hpad) then {
 	    	_hpad = "Land_HelipadEmpty_F" createVehicle _pos;
-	    	_hpad setPos (getPos _hpad findEmptyPosition [10,100,"B_Heli_Transport_03_F"]);
+	    	_hpad setPos (getPos _hpad findEmptyPosition [20,100,"B_Heli_Transport_03_F"]);
 			_hpad setDir getDir (nearestBuilding _hpad);
 		} else {
 			_hpad setPos _pos;
@@ -304,7 +304,26 @@ BIS_holdActionProgress =
 	playSound3D [BIS_holdActionSFX, player, false, getPosASL player, 1, 0.9 + 0.2 * _coef];
 };
 
-[crat99, "Open the Arsenal", "\A3\Ui_f\data\Logos\a_64_ca.paa", "\A3\Ui_f\data\Logos\a_64_ca.paa", "(_this distance _target < 6) && (isNull (findDisplay 162))", "isNull (findDisplay 162)", {}, BIS_holdActionProgress, {["Open",true] call BIS_fnc_arsenal;}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
+fnc_Garage99 = {
+	_pos = getPos BIS_garage_center_666;BIS_fnc_garage_center = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];["Open", true] call BIS_fnc_garage;};
+fnc_Garage98 = {
+	_pos = getPos BIS_garage_center_444;BIS_fnc_garage_center = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];["Open", true] call BIS_fnc_garage;};
+fnc_Garage97 = {
+	_pos = getPos BIS_garage_center_111;BIS_fnc_garage_center = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];["Open", true] call BIS_fnc_garage;};
+fnc_Garage96 = {
+	_pos = getPos BIS_garage_center_555;BIS_fnc_garage_center = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];["Open", true] call BIS_fnc_garage;};
+fnc_Garage95 = {
+	_pos = getPos BIS_garage_center_333;BIS_fnc_garage_center = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];["Open", true] call BIS_fnc_garage;};
+fnc_Garage94 = {
+	_pos = getPos BIS_garage_center_222;BIS_fnc_garage_center = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];["Open", true] call BIS_fnc_garage;};
+
+{[_x, "Open the Arsenal", "\A3\Ui_f\data\Logos\a_64_ca.paa", "\A3\Ui_f\data\Logos\a_64_ca.paa", "(_this distance _target < 6) && (isNull (findDisplay 162))", "isNull (findDisplay 162)", {}, BIS_holdActionProgress, {["Open",true] call BIS_fnc_arsenal;}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;} forEach [crat99,crat98,crat97,crat96,crat95,crat94];
+[gar99, "Open the Airstrip Garage", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "(_this distance _target < 6) && (isNull (findDisplay 162))", "isNull (findDisplay 162)", {}, BIS_holdActionProgress, {[[], fnc_Garage99] remoteExec ["call", 0];}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
+[gar98, "Open the Road Garage", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "(_this distance _target < 6) && (isNull (findDisplay 162))", "isNull (findDisplay 162)", {}, BIS_holdActionProgress, {[[], fnc_Garage98] remoteExec ["call", 0];}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
+[gar97, "Open the Helipad Garage", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "(_this distance _target < 6) && (isNull (findDisplay 162))", "isNull (findDisplay 162)", {}, BIS_holdActionProgress, {[[], fnc_Garage97] remoteExec ["call", 0];}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
+[gar96, "Open the Garage", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "(_this distance _target < 6) && (isNull (findDisplay 162))", "isNull (findDisplay 162)", {}, BIS_holdActionProgress, {[[], fnc_Garage96] remoteExec ["call", 0];}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
+[gar95, "Open the Garage", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "(_this distance _target < 6) && (isNull (findDisplay 162))", "isNull (findDisplay 162)", {}, BIS_holdActionProgress, {[[], fnc_Garage95] remoteExec ["call", 0];}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
+[gar94, "Open the Garage", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "\A3\Ui_f\data\igui\cfg\actions\getinpilot_ca.paa", "(_this distance _target < 6) && (isNull (findDisplay 162))", "isNull (findDisplay 162)", {}, BIS_holdActionProgress, {[[], fnc_Garage94] remoteExec ["call", 0];}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
 
 kouris execVM "Intel\intel_kouris.sqf";
 

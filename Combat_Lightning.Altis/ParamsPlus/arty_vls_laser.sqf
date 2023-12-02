@@ -3,6 +3,7 @@ private ["_caller","_position","_target","_is3D","_id"];
 params ["_caller","_position","_target","_is3D","_id"];
 _caller = _this select 0;
 _position = _this select 1;
+if ((side _caller) isNotEqualTo west) exitWith {hintSilent parseText format["<t size='1.25' color='#00FFFF'>Support Available For West Only!</t>"];};
 //_types = ["B_MBT_01_arty_F","O_MBT_02_arty_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F"];
 _types = ["B_Ship_MRLS_01_F","O_MBT_02_arty_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F"];
 
@@ -11,9 +12,9 @@ _vehicle = [];
 switch (side _caller) do {
 
     case west:			{_vehicle = (_types select 0)};
-    case east:			{_vehicle = (_types select 1)};
-    case resistance:	{_vehicle = (_types select 2)};
-    case civilian:		{_vehicle = (_types select 3)};
+    case east:			{_vehicle = (_types select 0)};
+    case resistance:	{_vehicle = (_types select 0)};
+    case civilian:		{_vehicle = (_types select 0)};
 };
 
 _spawnPoints = [];
@@ -136,7 +137,7 @@ uisleep 1;
 MRLS_1 addEventHandler ["Fired", {
 	private ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner","_t","_eta"];
 	params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
-	_t = ((target distance _projectile) / (speed _projectile) * .5);
+	_t = ((target distance _projectile) / (speed _projectile) * .4);
 	_eta = round _t;
 	//[_eta] spawn  { params ["_eta"]; for [{ _i = _eta}, { _i > 0 - 1 }, { _i = _i - 1 }] do {uisleep 1; hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta]}};
 	missionNamespace setVariable ["ETA_Time",_eta];
@@ -150,7 +151,7 @@ MRLS_1 addEventHandler ["Fired", {
 	for [{ _i = _eta}, { _i > 0 - 1 }, { _i = _i - 1 }] do
 	{	uisleep 1;
 		_marker setMarkerTextLocal format [" Cruise Missile ETA %1 seconds", _i];
-		hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta];
+		//hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta];
 		if (_i == 0) then {
 			missionNamespace setVariable ["ETA_Time",nil];
 			playSound3D ["A3\dubbing_f\modules\supports\artillery_accomplished.ogg", _caller];

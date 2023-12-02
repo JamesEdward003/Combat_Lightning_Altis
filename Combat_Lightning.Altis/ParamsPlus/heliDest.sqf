@@ -26,12 +26,12 @@ if !(("<t color='#00FFFF'>Map Destination</t>") in _array) then {
 		_friendlySide 	= _sideUnit;
 		_neutralSide 	= CIVILIAN;
 		_enemyAntiAir 	= if (_friendlySide isEqualTo "WEST") then { ["O_T_APC_Tracked_02_AA_ghex_F","O_APC_Tracked_02_AA_F","O_static_AA_F","O_Soldier_AA_F","O_soldierU_AA_F","O_T_Soldier_AA_F","O_A_soldier_AA_F"] } else { ["B_T_APC_Tracked_01_AA_F","B_APC_Tracked_01_AA_F","B_static_AA_F","B_T_Static_AA_F","B_soldier_AA_F","B_T_Soldier_AA_F","B_W_Soldier_AA_F"] };
-		_sourcePoint 	= 	_caller;
-		_randDir 		= 	getDir vehicle _sourcePoint - 180;
-		_randDist 		= 	(random 100) + 1000;
-		_airStart 		=	[(getPos vehicle _sourcePoint select 0) + (_randDist * sin(_randDir)), (getPos vehicle _sourcePoint select 1) + (_randDist * cos(_randDir)), 100];
-		_randDir2 		= 	getDir vehicle _sourcePoint;
-		_airEnd 		=	[(getPos vehicle _sourcePoint select 0) + (_randDist * sin(_randDir2)), (getPos vehicle _sourcePoint select 1) + (_randDist * cos(_randDir2)), 60];
+		_sourcePoint 	= _caller;
+		_randDir 		= getDir vehicle _sourcePoint - 180;
+		_randDist 		= (random 100) + 1000;
+		_airStart 		= [(getPos vehicle _sourcePoint select 0) + (_randDist * sin(_randDir)), (getPos vehicle _sourcePoint select 1) + (_randDist * cos(_randDir)), 100];
+		_randDir2 		= getDir vehicle _sourcePoint;
+		_airEnd 		= [(getPos vehicle _sourcePoint select 0) + (_randDist * sin(_randDir2)), (getPos vehicle _sourcePoint select 1) + (_randDist * cos(_randDir2)), 60];
 		uisleep 0.25;
 		location = false;
 		openmap [true,false];
@@ -60,7 +60,7 @@ if !(("<t color='#00FFFF'>Map Destination</t>") in _array) then {
 			hintSilent parseText format["<t size='1.25' color='#ff0000'>Map location canceled</t>"];
 			titletext ["","plain"];
 			};
-			_SafePos = [mappos3, 0, 50, 10, 0, 20, 0] call BIS_fnc_findSafePos;
+			_SafePos = mappos3; //[mappos3, 0, 50, 10, 0, 20, 0] call BIS_fnc_findSafePos;
 			_position = switch (true) do {
 
 				case (_SafePos distance uss_freedom < 200): {getPosATL uss_freedom};
@@ -145,25 +145,27 @@ if !(("<t color='#00FFFF'>Map Destination</t>") in _array) then {
 		_wp0 setWaypointPosition [getPosASL _heliPad, -1];
 		_wp0 waypointAttachVehicle _heliPad;
 		_wp0 setwaypointtype "TR UNLOAD";	
-		_wp0 setWaypointBehaviour "CARELESS";
-		_wp0 setWaypointCombatMode "BLUE";
+		_wp0 setWaypointBehaviour "AWARE";
+		_wp0 setWaypointCombatMode "YELLOW";
 		_wp0 setWaypointSpeed "NORMAL";
-		_wp0 setWaypointStatements ["true","(gunner (vehicle this)) setCombatBehaviour 'COMBAT'"];
+		_wp0 setWaypointStatements ["true",""];
 
 		_wpp0 = (group _caller) addwaypoint [getPos _heliPad, 0];
 		_wpp0 setWaypointPosition [getPosASL _heliPad, -1];
 		_wpp0 waypointAttachVehicle _heliPad;
 		_wpp0 setwaypointtype "GETOUT";	
 		_wpp0 setWaypointBehaviour "AWARE";
-		_wpp0 setWaypointCombatMode "BLUE";
+		_wpp0 setWaypointCombatMode "YELLOW";
 		_wpp0 setWaypointSpeed "NORMAL";
 		_wpp0 setWaypointStatements ["true",""];
 
 		[(group _caller), 0] synchronizeWaypoint [[(group _heli), 0]];
 
 		waitUntil {(_heli distance2d _heliPad < 200)};
-		(driver _heli) moveTo position _heliPad;
-		_heli land "GET OUT";
+		(driver _heli) move getPos _heliPad;
+		(driver _heli) commandMove getPos _heliPad;
+		(_heli) land "GET OUT";
+		//waitUntil {crew _heli arrayIntersect units (group _caller) isEqualTo []};
 
 		_wp1 = (group _heli) addwaypoint [_airEnd, 100];
 		_wp1 setwaypointtype "MOVE";

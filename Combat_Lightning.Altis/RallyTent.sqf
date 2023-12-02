@@ -1,6 +1,5 @@
 /////--"RallyTent.sqf"--/////
-_PRallyTent = "PRallyTent" call BIS_fnc_getParamValue;
-if !(_PRallyTent isEqualTo 2) exitWith {};
+if !(("PRallyTent" call BIS_fnc_getParamValue) isEqualTo 2) exitWith {};
 //(_this select 0) addEventHandler ["Respawn",{(_this select 0) execVM "RallyTent.sqf"}];
 _unit = _this;
 _actions = actionIDs _unit;
@@ -39,11 +38,11 @@ Rally_Tent = _unit addAction ["<t color='#00FFFF'>Deploy Rally Tent</t>", {(_thi
 			case RESISTANCE: 	{"RallyTent_Guer"};
 			case CIVILIAN: 		{"RallyTent_Civ"};
 		};
-	_tentclass = switch (playerSide) do  //		"Camping_base_F" Land_TentA_F  Land_TentDome_F  Respawn_TentDome_F  Patrol_Respawn_bag_F
+	_tentclass = switch (playerSide) do  //		"Camping_base_F"  Respawn_TentDome_F  Respawn_TentA_F Patrol_Respawn_bag_F
 		{
 			case WEST: 			{"Respawn_TentDome_F"};
 			case EAST: 			{"Respawn_TentA_F"};
-			case RESISTANCE: 	{"Patrol_Respawn_bag_F"};
+			case RESISTANCE: 	{"B_Patrol_Respawn_tent_F"};
 			case CIVILIAN: 		{"Respawn_TentA_F"};
 		};
 	_tentmrkr = switch (playerSide) do 

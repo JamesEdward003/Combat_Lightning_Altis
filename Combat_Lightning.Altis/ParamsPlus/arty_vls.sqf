@@ -3,6 +3,7 @@ private ["_caller","_position","_target","_is3D","_id"];
 params ["_caller","_position","_target","_is3D","_id"];
 _caller = _this select 0;
 _position = _this select 1;
+if ((side _caller) isNotEqualTo west) exitWith {hintSilent parseText format["<t size='1.25' color='#00FFFF'>Support Available For West Only!</t>"];};
 //_types = ["B_MBT_01_arty_F","O_MBT_02_arty_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F"];
 _types = ["B_Ship_MRLS_01_F","O_MBT_02_arty_F","I_Truck_02_MRL_F","I_Truck_02_MRL_F"];
 
@@ -11,9 +12,9 @@ _vehicle = [];
 switch (side _caller) do {
 
     case west:			{_vehicle = (_types select 0)};
-    case east:			{_vehicle = (_types select 1)};
-    case resistance:	{_vehicle = (_types select 2)};
-    case civilian:		{_vehicle = (_types select 3)};
+    case east:			{_vehicle = (_types select 0)};
+    case resistance:	{_vehicle = (_types select 0)};
+    case civilian:		{_vehicle = (_types select 0)};
 };
 
 _spawnPoints = [];
@@ -129,7 +130,7 @@ if ( _targets isEqualTo [] ) exitWith {
 _VLS_Array = [];
 {
 	private _vls = createVehicle [ _vehicle, (getPosATL _x), [], 0, "CAN_COLLIDE" ];
-	_vls setVehiclePosition [_x modelToWorld [-6,-2,((getPosATL _x) select 2)], [], 0, "CAN_COLLIDE"];
+	_vls setVehiclePosition [_x modelToWorld [0,0,((getPosATL _x) select 2)], [], 0, "CAN_COLLIDE"];
 	_vls setDir ((getDir _vls) + 45);
 	createVehicleCrew _vls;
 	_vls setVehicleAmmo 1;
@@ -152,7 +153,7 @@ MRLS_1 addEventHandler ["Fired", {
 	params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
 	_t = ((redSmoke distance _projectile) / (speed _projectile) * .25);
 	_eta = round _t;
-	[_eta] spawn  { params ["_eta"]; for [{ _i = _eta}, { _i > 0 - 1 }, { _i = _i - 1 }] do {uisleep 1; hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta]}};
+	//[_eta] spawn  { params ["_eta"]; for [{ _i = _eta}, { _i > 0 - 1 }, { _i = _i - 1 }] do {uisleep 1; hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta]}};
 	missionNamespace setVariable ["ETA_Time",_eta];
 	_unit removeEventHandler ["Fired", _thisEventHandler];
 }];

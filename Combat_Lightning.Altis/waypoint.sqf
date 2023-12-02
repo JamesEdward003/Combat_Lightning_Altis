@@ -52,3 +52,4 @@ openmap [false,false];
 uisleep 16;
 deleteMarker "Marker";
 deleteVehicle _blinky;
+

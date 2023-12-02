@@ -51,7 +51,7 @@ _unit addEventHandler ["WeaponAssembled", {
 	  	true,
 	  	"",
 	  	""];
-		_unit addAction ["<t color='#00FFFF'>Deploy Bombs</t>", {
+		_unit addAction ["<t color='#00FFFF'>Deploy Leaflets</t>", {
 			params ["_target", "_caller", "_actionId", "_arguments"];
 			(_arguments select 0) fire "Bomb_Leaflets";
 			[(_arguments select 0), "ParamsPlus\heliBombs.sqf"] remoteExec ["execVM", (_arguments select 0)];
@@ -61,7 +61,7 @@ _unit addEventHandler ["WeaponAssembled", {
 	  	false,
 	  	true,
 	  	"",
-	  	"(alive _target)",
+	  	"(('Leaflets' call BIS_fnc_getParamValue) isEqualTo 2)",
 	  	-1,
 	  	true,
 	  	"",

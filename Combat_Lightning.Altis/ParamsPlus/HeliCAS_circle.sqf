@@ -157,13 +157,9 @@ _enemyAntiAirArray = [];
 	
 } count _enemyArray;
 
-if (((count _enemyArray) > 100) or ((count _enemyAntiAirArray) > 10)) exitWith {
+if (((count _enemyArray) > 100) or ((count _enemyAntiAirArray) > 10)) then {
 
-	hintSilent parseText format ["<t size = '1.5' color = '#FF0000'>Support Not Available!</t><br/><br/>Anti-Air close! ( 300 meters )<br/><br/>Find clear area before request!"];
-
-	deleteMarker _marker;
-
-	deleteMarker _mrkr;
+	hintSilent parseText format ["<t size = '1.5' color = '#FF0000'>Support Be ForeWarned!</t><br/><br/>Anti-Air close! ( 300 meters )<br/><br/>Secure the area!"];
 };
 
 _flightPath = _airStart getDir _position;		

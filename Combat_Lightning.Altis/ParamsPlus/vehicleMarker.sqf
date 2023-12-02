@@ -29,7 +29,7 @@ if (!(isNil { missionNamespace getVariable "markerCount"})) then
 _mrkrCnt = missionNamespace getVariable "markerCount";	
 _mrkrName = format ["%1_%2",_vehType,_mrkrCnt];
 
-_mrkrColor = switch (side player) do 
+_mrkrColor = switch (side _vehicle) do 
 	{
 		case west: 			{"colorBLUFOR"};
 		case east: 			{"colorOPFOR"};
@@ -37,7 +37,7 @@ _mrkrColor = switch (side player) do
 		default 			{"ColorCivilian"};
 	};
 		
-switch (side player) do 
+switch (side _vehicle) do 
 	{
 	case west: {	
 			_markerType = switch true do 

@@ -10,7 +10,7 @@ _airName = switch (playerSide) do
 		case civilian: 		{"Transport_Civ"};
 	};
 
-waitUntil {count (fullCrew [_heli, "cargo"]) < 1};
+//waitUntil {count (fullCrew [_heli, "cargo"]) < 1};
 
 if (!isNil {missionNamespace getVariable _airName}) then {
 	deleteMarker _airName;

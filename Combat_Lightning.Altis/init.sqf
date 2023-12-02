@@ -5,7 +5,7 @@ uav_guer=objNull;publicVariable "uav_guer";
 uav_civ=objNull;publicVariable "uav_civ";
 myLeaflet=objNull;publicVariable "myLeaflet";
 
-[playerSide, "HQ"] commandChat "Initiating v2023.11.18";
+[playerSide, "HQ"] commandChat "Initiating v2023.12.01";
 
 addMissionEventHandler ["EntityKilled", { 
 	params ["_unit", "_killer", "_instigator", "_useEffects"];
@@ -201,16 +201,28 @@ fnc_addFirstAidKitsAndMags =
 			_unit addItem "FirstAidKit";
 		};				
 	};	
-	if ({_x == "30Rnd_65x39_caseless_black_mag"} count magazines _unit < 8) then {
-		_cntb = {_x == "30Rnd_65x39_caseless_black_mag"} count (magazines _unit);
+	if ({_x == (primaryWeaponMagazine _unit) select 0} count magazines _unit < 8) then {
+		_cntb = {_x == (primaryWeaponMagazine _unit) select 0} count (magazines _unit);
 		for [{_i= 8 - _cntb},{_i>0},{_i=_i-1}] do {
-			_unit addMagazine "30Rnd_65x39_caseless_black_mag";
+			_unit addMagazine ((primaryWeaponMagazine _unit) select 0);
 		};				
 	};
-	if ({_x == "3Rnd_HE_Grenade_shell"} count magazines _unit < 8) then {
-		_cntc = {_x == "3Rnd_HE_Grenade_shell"} count (magazines _unit);
-		for [{_i= 8 - _cntc},{_i>0},{_i=_i-1}] do {
-			_unit addMagazine "3Rnd_HE_Grenade_shell";
+	if ({_x == (primaryWeaponMagazine _unit) select 1} count magazines _unit < 4) then {
+		_cntc = {_x == (primaryWeaponMagazine _unit) select 1} count (magazines _unit);
+		for [{_i= 4 - _cntc},{_i>0},{_i=_i-1}] do {
+			_unit addMagazine ((primaryWeaponMagazine _unit) select 1);
+		};				
+	};
+	if ({_x == (secondaryWeaponMagazine _unit) select 0} count magazines _unit < 2) then {
+		_cntd = {_x == (secondaryWeaponMagazine _unit) select 0} count (magazines _unit);
+		for [{_i= 2 - _cntd},{_i>0},{_i=_i-1}] do {
+			_unit addMagazine ((secondaryWeaponMagazine _unit) select 0);
+		};				
+	};
+	if ({_x == (handgunMagazine _unit) select 0} count magazines _unit < 4) then {
+		_cnte = {_x == (handgunMagazine _unit) select 0} count (magazines _unit);
+		for [{_i= 4 - _cnte},{_i>0},{_i=_i-1}] do {
+			_unit addMagazine ((handgunMagazine _unit) select 0);
 		};				
 	};	
 	[_unit, 1] remoteExec ["setVehicleAmmo",groupOwner (group _unit)];

@@ -26,7 +26,7 @@ if !(("<t color='#00FFFF'>Talk</t>") in _array) then {
         //hint format ["%1",_result];
       if ((_result call BIS_fnc_guiMessage) isEqualTo true) then {
         _target setUnitRank "CORPORAL";
-        _target forceSpeed (getSpeed "FAST");
+        _target forceSpeed (_target getSpeed "FAST");
         [_target] joinSilent (group _caller);
         doStop _target;
         titleText [format ['<t color=''#ffdd22'' size=''1.25''>%1</t><br/>***********',(_arguments select 0)], 'PLAIN DOWN', -1, true, true];

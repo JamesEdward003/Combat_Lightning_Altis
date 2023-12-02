@@ -1,4 +1,5 @@
 ////////   "ParamsPlus\heliBombs.sqf"  ////////
+if !(("AirBombs" call BIS_fnc_getParamValue) isEqualTo 2) exitWith {};
 private ["_heli"];
 _heli = _this select 0;
 _actions = actionIDs _heli;
@@ -61,7 +62,7 @@ if !(("<t color='#00FFFF'>Deploy Bombs</t>") in _array) then {
 	false,
 	true,
 	"",
-	"!(isNull objectParent _this)",
+	"(('AirBombs' call BIS_fnc_getParamValue) isEqualTo 2)",		//"!(isNull objectParent _this)",
 	-1,
 	true,
 	"",

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1773;
+		nextID=1781;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=326;
+		nextID=364;
 	};
 	class Camera
 	{
 		pos[]={14658.87,37.909912,16794.73};
-		dir[]={-0.81612802,-0.22098069,0.53395337};
-		up[]={-0.18491946,0.97527826,0.1209842};
-		aside[]={0.54748851,0,0.83681554};
+		dir[]={-0.81612664,-0.22097993,0.53395241};
+		up[]={-0.18491912,0.97527838,0.12098368};
+		aside[]={0.5474872,0,0.83681405};
 	};
 };
 binarizationWanted=0;
@@ -436,7 +436,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=130;
+		items=121;
 		class Item0
 		{
 			dataType="Logic";
@@ -455,7 +455,7 @@ class Mission
 			side="East";
 			class Entities
 			{
-				items=9;
+				items=10;
 				class Item0
 				{
 					dataType="Object";
@@ -474,7 +474,7 @@ class Mission
 					{
 						skill=1;
 						rank="MAJOR";
-						init="call{this setGroupID [""Viper"",""GroupColor2""];[position this, units group this, -1, true, true, true, true] execVM ""Zen_OccupyHouse.sqf"";}";
+						init="call{this setGroupID [""Viper"",""GroupColor2""];}";
 						name="Attar";
 						isPlayable=1;
 					};
@@ -1080,6 +1080,18 @@ class Mission
 					};
 					showWP="NEVER";
 					id=313;
+					type="Move";
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+038;
+					position[]={20817.779,27.781878,7277.5908};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=1779;
 					type="SeekAndDestroy";
 				};
 			};
@@ -1095,7 +1107,7 @@ class Mission
 			side="Independent";
 			class Entities
 			{
-				items=9;
+				items=10;
 				class Item0
 				{
 					dataType="Object";
@@ -1640,7 +1652,7 @@ class Mission
 					{
 						skill=1;
 						rank="MAJOR";
-						init="call{this setGroupID [""Aegis"",""GroupColor3""];[position this, units group this, -1, true, true, true, true] execVM ""Zen_OccupyHouse.sqf"";}";
+						init="call{this setGroupID [""Aegis"",""GroupColor3""];}";
 						name="Akhanteros";
 						isPlayable=1;
 					};
@@ -1721,14 +1733,27 @@ class Mission
 				{
 					dataType="Waypoint";
 					loiterAltitude=-3.4028235e+038;
-					position[]={26910.057,23.616066,24307.975};
+					position[]={26910.057,23.616064,24307.975};
+					formation="WEDGE";
+					speed="NORMAL";
 					class Effects
 					{
 					};
 					showWP="NEVER";
 					id=332;
+					type="Move";
+				};
+				class Item9
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+038;
+					position[]={26910.42,23.632504,24308.775};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=1778;
 					type="SeekAndDestroy";
-					atlOffset=1.9073486e-006;
 				};
 			};
 			class Attributes
@@ -1928,6 +1953,7 @@ class Mission
 			class Attributes
 			{
 				init="this addaction ['Open Virtual Arsenal', { ['Open',true] call BIS_fnc_arsenal }]";
+				name="crat95";
 			};
 			id=203;
 			type="Box_IND_Support_F";
@@ -1962,6 +1988,7 @@ class Mission
 			class Attributes
 			{
 				init="this addaction ['Open Virtual Arsenal', { ['Open',true] call BIS_fnc_arsenal }]";
+				name="crat94";
 			};
 			id=204;
 			type="Box_East_Support_F";
@@ -2086,6 +2113,7 @@ class Mission
 			class Attributes
 			{
 				init="this addaction ['Open Virtual Arsenal', { ['Open',true] call BIS_fnc_arsenal }]";
+				name="crat98";
 			};
 			id=207;
 			type="B_supplyCrate_F";
@@ -7358,6 +7386,7 @@ class Mission
 			class Attributes
 			{
 				init="this addaction ['Open Virtual Arsenal', { ['Open',true] call BIS_fnc_arsenal }]";
+				name="crat97";
 			};
 			id=235;
 			type="B_supplyCrate_F";
@@ -7419,7 +7448,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14667.267,17.91,16798.625};
+				position[]={14664.014,17.91,16801.896};
 				angles[]={0,0.78539819,0};
 			};
 			side="Empty";
@@ -7436,7 +7465,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14674.518,17.91,16791.416};
+				position[]={14671.265,17.91,16794.688};
 				angles[]={0,0.78539819,0};
 			};
 			side="Empty";
@@ -7453,7 +7482,7 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={14681.77,17.91,16784.074};
+				position[]={14678.517,17.91,16787.346};
 				angles[]={0,0.78539819,0};
 			};
 			side="Empty";
@@ -7679,7 +7708,7 @@ class Mission
 			side="Civilian";
 			class Entities
 			{
-				items=2;
+				items=3;
 				class Item0
 				{
 					dataType="Object";
@@ -7693,7 +7722,7 @@ class Mission
 					{
 						skill=1;
 						rank="MAJOR";
-						init="call{this setGroupID [""Nikos"",""GroupColor5""];[position this, units group this, -1, true, true, true, true] execVM ""Zen_OccupyHouse.sqf"";}";
+						init="call{this setGroupID [""Nikos"",""GroupColor5""];}";
 						isPlayable=1;
 					};
 					id=251;
@@ -7765,6 +7794,18 @@ class Mission
 					};
 					showWP="NEVER";
 					id=354;
+					type="Move";
+				};
+				class Item2
+				{
+					dataType="Waypoint";
+					loiterAltitude=-3.4028235e+038;
+					position[]={11595.396,23.616871,11971.948};
+					class Effects
+					{
+					};
+					showWP="NEVER";
+					id=1780;
 					type="Support";
 				};
 			};
@@ -7785,7 +7826,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				name="BIS_garage_center_5";
+				name="BIS_garage_center_555";
 			};
 			id=255;
 			type="Land_HelipadSquare_F";
@@ -7853,7 +7894,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				name="hpad_5";
+				name="hpad5";
 			};
 			id=260;
 			type="Land_HelipadSquare_F";
@@ -7871,7 +7912,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				name="BIS_garage_center_3";
+				name="BIS_garage_center_333";
 			};
 			id=262;
 			type="Land_HelipadSquare_F";
@@ -7939,7 +7980,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				name="hpad_3";
+				name="hpad3";
 			};
 			id=267;
 			type="Land_HelipadSquare_F";
@@ -7956,7 +7997,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				name="BIS_garage_center_2";
+				name="BIS_garage_center_222";
 			};
 			id=269;
 			type="Land_HelipadSquare_F";
@@ -7966,8 +8007,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={20785.066,29.175993,7198.1328};
-				angles[]={0.020001473,0.94247776,6.2631841};
+				position[]={20760.971,28.602732,7244.0127};
+				angles[]={0.14693356,0.94247776,6.2591896};
 			};
 			side="Empty";
 			flags=4;
@@ -7983,8 +8024,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={20793.377,29.087227,7203.834};
-				angles[]={6.2685246,0.94247776,6.2805324};
+				position[]={20769.281,28.465731,7249.7139};
+				angles[]={0.038647637,0.94247776,0.021331646};
 			};
 			side="Empty";
 			flags=4;
@@ -8000,8 +8041,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={20802.393,29.053307,7209.2969};
-				angles[]={0,0.94247776,0};
+				position[]={20778.297,28.228302,7255.1768};
+				angles[]={0.011995304,0.94247776,6.2711902};
 			};
 			side="Empty";
 			flags=4;
@@ -8024,7 +8065,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				name="hpad_2";
+				name="hpad2";
 			};
 			id=274;
 			type="Land_HelipadSquare_F";
@@ -8058,6 +8099,7 @@ class Mission
 			class Attributes
 			{
 				init="this addaction ['Open Virtual Arsenal', { ['Open',true] call BIS_fnc_arsenal }]";
+				name="crat96";
 			};
 			id=277;
 			type="Box_GEN_Equip_F";
@@ -8359,7 +8401,7 @@ class Mission
 					{
 						skill=1;
 						rank="SERGEANT";
-						init="this setVehiclePosition [[14633.7,16798.5,0.125], [""scout_intel_1"",""scout_intel_2"",""scout_intel_3"",""scout_intel_4""], 0, ""CAN_COLLIDE""]; " \n "[position this, units group this, -1, true, true, true, true] execVM ""Zen_OccupyHouse.sqf"";";
+						init="[""ao_marker"", true, this] execVM ""Z_RandomHousePositionCircleEdge.sqf"";";
 						name="Kouris";
 						description="Scout";
 						isPlayable=1;
@@ -8557,7 +8599,7 @@ class Mission
 								class data
 								{
 									singleType="STRING";
-									value="CTRG13";
+									value="TFAegis";
 								};
 							};
 						};
@@ -9060,7 +9102,8 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Front Helipad Garage"", {_pos = getPos BIS_garage_center_111;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				init="this addAction [""Helipad Garage"", {_pos = getPos BIS_garage_center_111;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				name="gar97";
 			};
 			id=361;
 			type="Land_Noticeboard_F";
@@ -9110,7 +9153,8 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Virtual Garage"", {_pos = getPos BIS_garage_center_5;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				init="this addAction [""Virtual Garage"", {_pos = getPos BIS_garage_center_555;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				name="gar96";
 			};
 			id=364;
 			type="Land_Noticeboard_F";
@@ -9144,7 +9188,8 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Virtual Garage"", {_pos = getPos BIS_garage_center_2;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				init="this addAction [""Virtual Garage"", {_pos = getPos BIS_garage_center_222;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				name="gar94";
 			};
 			id=365;
 			type="Land_Noticeboard_F";
@@ -9178,7 +9223,8 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="this addAction [""Virtual Garage"", {_pos = getPos BIS_garage_center_3;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				init="this addAction [""Virtual Garage"", {_pos = getPos BIS_garage_center_333;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				name="gar95";
 			};
 			id=366;
 			type="Land_Noticeboard_F";
@@ -10186,6 +10232,7 @@ class Mission
 			class Attributes
 			{
 				init="this addAction [""Road Garage"", {_pos = getPos BIS_garage_center_444;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				name="gar98";
 			};
 			id=429;
 			type="Land_Noticeboard_F";
@@ -10220,6 +10267,7 @@ class Mission
 			class Attributes
 			{
 				init="this addAction [""Airstrip Garage"", {_pos = getPos BIS_garage_center_666;BIS_fnc_garage_center = createVehicle [""Land_HelipadEmpty_F"", _pos, [], 0, ""CAN_COLLIDE""];[""Open"", true] call BIS_fnc_garage;}];";
+				name="gar99";
 			};
 			id=430;
 			type="Land_Noticeboard_F";
@@ -10576,212 +10624,6 @@ class Mission
 			};
 		};
 		class Item120
-		{
-			dataType="Layer";
-			name="Myth's UAV Live Feed Composition";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Layer";
-					name="Live UAV Feed Composition";
-					class Entities
-					{
-						items=1;
-						class Item0
-						{
-							dataType="Layer";
-							name="Live UAV Feed Composition_1";
-							id=480;
-							atlOffset=185.97;
-						};
-					};
-					id=479;
-					atlOffset=185.97;
-				};
-			};
-			id=506;
-			atlOffset=185.97;
-		};
-		class Item121
-		{
-			dataType="Layer";
-			name="Myth's UAV Live Feed Composition";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Layer";
-					name="Live UAV Feed Composition_2";
-					class Entities
-					{
-						items=1;
-						class Item0
-						{
-							dataType="Layer";
-							name="Live UAV Feed Composition_3";
-							id=510;
-							atlOffset=185.97;
-						};
-					};
-					id=509;
-					atlOffset=185.97;
-				};
-			};
-			id=536;
-			atlOffset=185.97;
-		};
-		class Item122
-		{
-			dataType="Layer";
-			name="Outpost Machiavelli";
-			id=805;
-			atlOffset=185.97;
-		};
-		class Item123
-		{
-			dataType="Layer";
-			name="LDF FOB";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Layer";
-					name="IDAP Refugee Camp (Small)";
-					id=809;
-					atlOffset=185.97;
-				};
-			};
-			id=1024;
-			atlOffset=185.97;
-		};
-		class Item124
-		{
-			dataType="Layer";
-			name="LDF FOB";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Layer";
-					name="IDAP Refugee Camp (Small)_1";
-					id=1025;
-					atlOffset=185.97;
-				};
-			};
-			id=1240;
-			atlOffset=185.97;
-		};
-		class Item125
-		{
-			dataType="Layer";
-			name="GAR - ARTY - FOB";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Layer";
-					name="GAR - ARTY - FOB";
-					class Entities
-					{
-						items=1;
-						class Item0
-						{
-							dataType="Layer";
-							name="FOB LIST";
-							class Entities
-							{
-								items=1;
-								class Item0
-								{
-									dataType="Layer";
-									name="ARTI FOB_1";
-									id=1255;
-									atlOffset=185.97;
-								};
-							};
-							id=1254;
-							atlOffset=185.97;
-						};
-					};
-					id=1253;
-					atlOffset=185.97;
-				};
-			};
-			id=1260;
-			atlOffset=185.97;
-		};
-		class Item126
-		{
-			dataType="Layer";
-			name="GAR - ARTY - FOB";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Layer";
-					name="GAR - ARTY - FOB_1";
-					class Entities
-					{
-						items=1;
-						class Item0
-						{
-							dataType="Layer";
-							name="FOB LIST_1";
-							class Entities
-							{
-								items=1;
-								class Item0
-								{
-									dataType="Layer";
-									name="ARTI FOB_2";
-									id=1263;
-									atlOffset=185.97;
-								};
-							};
-							id=1262;
-							atlOffset=185.97;
-						};
-					};
-					id=1261;
-					atlOffset=185.97;
-				};
-			};
-			id=1268;
-			atlOffset=185.97;
-		};
-		class Item127
-		{
-			dataType="Layer";
-			name="Renfro's Outpost Machiavelli ";
-			id=1528;
-			atlOffset=185.97;
-		};
-		class Item128
-		{
-			dataType="Layer";
-			name="LDF FOB";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Layer";
-					name="IDAP Refugee Camp (Small)_2";
-					id=1529;
-					atlOffset=185.97;
-				};
-			};
-			id=1744;
-			atlOffset=185.97;
-		};
-		class Item129
 		{
 			dataType="Object";
 			class PositionInfo

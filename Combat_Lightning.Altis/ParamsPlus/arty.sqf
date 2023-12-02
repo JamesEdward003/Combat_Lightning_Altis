@@ -106,8 +106,9 @@ uisleep 4;
 _artillery = [];
 {
 	private _arty = createVehicle [ _vehicle, (getPosATL _x), [], 0, "CAN_COLLIDE" ];
-	_arty setVehiclePosition [_x modelToWorld [-6,-2,((getPosATL _x) select 2)], [], 0, "CAN_COLLIDE"];
 	_arty setDir ((getDir _arty) + 45);
+	_arty setVehiclePosition [_x modelToWorld [0,0,((getPosATL _x) select 2)], [], 0, "CAN_COLLIDE"];
+	
 	createVehicleCrew _arty;
 	_artillery pushBack _arty;
 	uisleep 1;
@@ -155,7 +156,7 @@ if ((position target) inRangeOfArtillery [[(_artillery select 0)], currentMagazi
 		for [{ _i = _eta}, { _i > 0 - 1 }, { _i = _i - 1 }] do
 		{	uisleep 1;
 			_marker setMarkerTextLocal format [" Artillery ETA %1 seconds", _i];
-			hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta];
+			//hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1</t>",_eta];
 			if (_i == 0) then {
 				missionNamespace setVariable ["ETA_Target",nil];
 			};

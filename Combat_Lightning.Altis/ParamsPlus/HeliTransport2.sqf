@@ -72,7 +72,7 @@ waitUntil {sleep 1; (!visiblemap OR location OR !alive _caller)};
 	titletext ["","plain"];
 	}; 
 
-	_SafePos = [mappos1, 0, 50, 10, 0, 20, 0] call BIS_fnc_findSafePos;
+	_SafePos = mappos1; //[mappos1, 0, 50, 10, 0, 20, 0] call BIS_fnc_findSafePos;
 
 	if (_SafePos distance uss_freedom < 200) then {
 
@@ -100,7 +100,7 @@ waitUntil {sleep 1; (!visiblemap OR location OR !alive _caller)};
 		
 } else { 
 
-	_SafePos = [_position, 0, 50, 10, 0, 20, 0] call BIS_fnc_findSafePos;
+	_SafePos = _position; //[_position, 0, 50, 10, 0, 20, 0] call BIS_fnc_findSafePos;
 
 	if (_SafePos distance uss_freedom < 200) then {
 
@@ -151,10 +151,6 @@ _enemyAntiAirArray = [];
 if (((count _enemyArray) > 10) or ((count _enemyAntiAirArray) > 0)) then {
 
 	hintSilent parseText format ["<t size = '1.5' color = '#FF0000'>Transport Be ForeWarned!</t><br/><br/>Too many enemies close! ( 10 per 50m )<br/>or<br/>Anti-Air close! ( 300 meters )<br/><br/>Secure the area before requesting transport!"];
-
-	// deleteMarker _marker;
-
-	// deleteMarker _mrkr;
 };
 
 _flightPath = _airStart getDir _position;		
@@ -178,12 +174,21 @@ _ch = [_airStart, _flightPath, _airType, side _caller] call BIS_fnc_spawnVehicle
 {_x allowDamage false} forEach (crew (_ch select 0)) + [(_ch select 0)];
 {addswitchableunit _x} forEach (crew (_ch select 0));
 
-//currentPilot (_ch select 0) disableAI "radioProtocol";
-//currentPilot (_ch select 0) setUnitCombatMode "BLUE";
 {(driver (_ch select 0)) disableAI _x} forEach ["autocombat","target","autotarget"];
-//(driver (_ch select 0)) setUnitCombatMode "BLUE";
-//(gunner (_ch select 0)) disableAI "radioProtocol";
-//(gunner (_ch select 0)) setUnitCombatMode "RED";
+
+(_ch select 0) spawn { 
+_this addbackpackcargoGlobal ["B_AssaultPack_cbr",1]; 
+_this addbackpackcargoGlobal ["B_AssaultPack_rgr",1];                     sleep 0.1;
+_bpk1 = (everyBackpack _this) select ( count (everyBackpack _this) - 1 ); 
+_bpk2 = (everyBackpack _this) select ( count (everyBackpack _this) - 2 ); sleep 0.1; 
+_bpk1 addMagazineCargoGlobal ["200Rnd_65x39_cased_Box_Tracer_Red",4]; 
+_bpk1 addItemCargoGlobal ["optic_SOS",1]; 
+_bpk1 addItemCargoGlobal ["bipod_03_F_blk",1]; 
+_bpk1 addItemCargoGlobal ["FirstAidKit",8]; 
+_bpk2 addMagazineCargoGlobal ["5Rnd_127x108_APDS_Mag",12]; 
+_bpk2 addItemCargoGlobal ["optic_LRPS",1]; 
+_bpk2 addItemCargoGlobal ["FirstAidKit",8]; 
+};
 
 for "_i" from count waypoints (_ch select 2) - 1 to 0 step -1 do
     {
@@ -225,7 +230,6 @@ missionNamespace setVariable [_airName,[_CampFireID,_heliPadID]];
 		hintSilent parseText format["<t size='1.25' color='#00FFFF'>%1 ready for reassignment!</t>", _airName];
 	};
 };
-
 PAPABEAR=[side _caller,"HQ"]; PAPABEAR SideChat format ["%1 to your position %2", _airName, name _caller];
 
 _wp0 = (_ch select 2) addwaypoint [getPos _heliPad, 0];
@@ -235,7 +239,7 @@ _wp0 setWaypointType "LOAD";
 _wp0 setWaypointBehaviour "AWARE";
 _wp0 setWaypointCombatMode "YELLOW";
 _wp0 setWaypointSpeed "NORMAL";
-_wp0 setWaypointStatements ["true","(gunner (vehicle this)) setCombatBehaviour 'COMBAT'"];
+_wp0 setWaypointStatements ["true",""];
 
 _wpp0 = (group _caller) addwaypoint [getPos _heliPad, 0];
 _wpp0 setWaypointPosition [getPosASL _heliPad, -1];
@@ -249,9 +253,12 @@ _wpp0 setWaypointStatements ["true",""];
 [(group _caller), 0] synchronizeWaypoint [[(_ch select 2), 0]];
 
 waitUntil {((_ch select 0) distance2d _heliPad < 200)};
-(driver (_ch select 0)) moveTo position _heliPad;
-(_ch select 0) land "LAND";
+(driver (_ch select 0)) move getPos _heliPad;
+(driver (_ch select 0)) commandMove getPos _heliPad;
+(_ch select 0) land "GET IN";
+[(_ch select 0)] execVM "paramsplus\heliGunners.sqf";
 [(_ch select 0)] execVM "paramsplus\heliDest.sqf";
+//waitUntil {count (units (group _caller) select {_x in crew (_ch select 0)}) isEqualTo count units (group _caller)};
 
 _wp1 = (_ch select 2) addwaypoint [_airEnd, 0];
 _wp1 setWaypointType "MOVE";

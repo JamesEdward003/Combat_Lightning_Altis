@@ -489,6 +489,14 @@ class Params
         file = "ParamsPlus\initGodMode.sqf";
         isGlobal = 1;
     };
+    class AirBombs      
+    { 
+        title = "Air Bombs";
+        texts[] = {"Disabled","Enabled"};
+        values[] = {1, 2};
+        default = 1;
+        isGlobal = 1;
+    };
     class Artillery      
     { 
         title = "Artillery Strike";
@@ -511,6 +519,14 @@ class Params
         texts[] = {"Disabled","Enabled"};
         values[] = {1, 2};
         default = 2;
+        isGlobal = 1;
+    };
+    class Leaflets      
+    { 
+        title = "Leaflets";
+        texts[] = {"Disabled","Enabled"};
+        values[] = {1, 2};
+        default = 1;
         isGlobal = 1;
     };
     class Mortar     
@@ -728,7 +744,7 @@ class CfgLeaflets
     };
    class Civ // configuration for 1Rnd_Leaflets_Civ_F
     {
-        text = "Make Love Not War."; // text shown when previewing the leaflet full-screen. Ideally should be localized, so even player who cannot read the image can get the information
+        text = "Make Arma Not War."; // text shown when previewing the leaflet full-screen. Ideally should be localized, so even player who cannot read the image can get the information
         texture = "Leaflets\PaintTarget_CO.paa"; // leaflet texture shown when previewing the leaflet full-screen
         model = "myLeaflet.p3d"; // in-flight model. Optional; When undefined, generic white leaflet is used
     };

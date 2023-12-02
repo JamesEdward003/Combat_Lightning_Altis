@@ -27,7 +27,7 @@ waitUntil {sleep 1; (!visiblemap OR location OR !alive player)};
 
 //	{_x setPos mappos;uisleep 0.1;} forEach units group player; 
 
-	_null=[position player,10,player] execVM "allRoundDefense.sqf";
+	//_null=[position player,10,player] execVM "allRoundDefense.sqf";
 
 	_varname = createMarkerLocal ["Marker", position player];
 	_varname setMarkerTypeLocal "mil_dot";
