@@ -65,7 +65,6 @@ _posVector = [_posVector, -_zDir] call BIS_fnc_rotateVector2D;
 
 _zPosFinal = _zPos vectorAdd _posVector;
 
-
 if (!isNull _placedUnit) then {
 
     RandomHousePosition = {
@@ -76,7 +75,7 @@ if (!isNull _placedUnit) then {
         _allPositions = [];
         _allBuildings apply {_allPositions append (_x buildingPos -1)};
         _rndPos = selectRandom _allPositions;
-        if (_rndPos isEqualType []) then {
+        if (_rndPos isEqualTypeArray [0,0,0]) then {
             missionNamespace setVariable ["RandomHousePosition",_rndPos];
         } else {
             hintSilent "[]";
@@ -84,13 +83,27 @@ if (!isNull _placedUnit) then {
     };
     [[_zPosFinal, ["BUILDING","CHAPEL","CHURCH","FUELSTATION","HOSPITAL","HOUSE","LIGHTHOUSE"], 100], RandomHousePosition] remoteExec ["call", 0];
 
-    _rndPos = missionNamespace getVariable "RandomHousePosition";
-    if (_rndPos isEqualType []) then {
+    if (isNil "RandomHousePosition") exitWith {hintSilent "[No position!]";[[_zPosFinal, ["BUILDING","CHAPEL","CHURCH","FUELSTATION","HOSPITAL","HOUSE","LIGHTHOUSE"], 100], RandomHousePosition] remoteExec ["call", 0];};
+
+        _rndPos = missionNamespace getVariable "RandomHousePosition";
+
+    if (_rndPos isEqualTypeArray [0,0,0]) then {
         _placedUnit setVehiclePosition [_rndPos, [], 0, "CAN_COLLIDE"];
+        _placedUnit setCaptive true;
+        _placedUnit disableAi "TARGET";
+        missionNamespace setVariable ["RandomHousePosition",nil];
     } else {
-        hintSilent "[]";
-    };        
+        hintSilent "[No position!]";
+        missionNamespace setVariable ["RandomHousePosition",nil];
+    };
+
+} else {
+
+    hintSilent "[No unit!]";
 };
+
+//debug: call{_cursorTarget = typeOf cursorTarget; hint format ["%1",([configFile >> "CfgVehicles" >> _cursorTarget, true] call BIS_fnc_returnParents)];copyToClipboard format ["%1",([configFile >> "CfgVehicles" >> _cursorTarget, true] call BIS_fnc_returnParents)];["ao_marker", true, player] execVM "Z_RandomHousePositionCircleEdge.sqf";};
+
 //this setVehiclePosition [[14633.7,16798.5,0.125], ["scout_intel_1","scout_intel_2","scout_intel_3","scout_intel_4"], 0, "CAN_COLLIDE"];
 //["ao_marker", true, this] execVM "Z_RandomHousePositionCircleEdge.sqf";
 /*

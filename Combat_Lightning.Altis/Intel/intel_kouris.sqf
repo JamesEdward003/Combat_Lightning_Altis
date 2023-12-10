@@ -24,13 +24,18 @@ private _toRemoteExec = {
 }; 
 [_this, _toRemoteExec] remoteExec ["call", 0, _this]; 
 
-//if ((unitBackpack Kouris isKindof "B_Messenger_Olive_F") && (!("Intel_File2_F" in (items Kouris + assignedItems Kouris)))) then {Kouris addItemToBackpack "Intel_File2_F";};
 
-//[_this, "Intel\QA.sqf"] remoteExec ["execVM", 0, _this]; 
-
-//this setVehiclePosition [[14633.7,16798.5,0.125], ["scout_intel_1","scout_intel_2","scout_intel_3","scout_intel_4"], 0, "CAN_COLLIDE"];
 /*
-I_Truck_02_fuel_F
-I_Truck_02_ammo_F
+DEBUG:
+player addaction ["<t color='#00FFFF'>Next Location</t>", {_cursorTarget = typeOf cursorTarget; hint format ["%1",([configFile >> "CfgVehicles" >> _cursorTarget, true] call BIS_fnc_returnParents)];copyToClipboard format ["%1",([configFile >> "CfgVehicles" >> _cursorTarget, true] call BIS_fnc_returnParents)];["ao_marker", true, player] execVM "Z_RandomHousePositionCircleEdge.sqf"; }, 
+ [], 
+ 10, 
+ false, 
+ true, 
+ "", 
+ "", 
+ -1, 
+ true, 
+ "", 
+ ""];
 */
-

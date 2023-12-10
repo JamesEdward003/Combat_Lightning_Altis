@@ -1,4 +1,5 @@
 // "init.sqf" //
+//{ deleteVehicle _x } forEach (allMissionObjects "ruin") + (allMissionObjects "Land_Metal_Shed_F");
 uav_west=objNull;publicVariable "uav_west";
 uav_east=objNull;publicVariable "uav_east";
 uav_guer=objNull;publicVariable "uav_guer";

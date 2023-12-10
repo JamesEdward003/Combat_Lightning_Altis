@@ -1,0 +1,31 @@
+
+SIR_fnc_Kouris_1 = { // Resistance-Enemy
+  [
+    [
+      ["title","Combat Lightning"],
+      ["meta",["Alexis Kouris",[2035,2,24,11,38],"CET"]],
+      ["textbold","""Might be a good choice to wait until nightfall before starting the approach! The stealthy ticket!"""],
+      ["image",["\A3\Ui_F_Curator\Data\Logos\arma3_curator_artwork.jpg","Combat Lightning"]],
+      ["box",["\A3\EditorPreviews_F\Data\CfgVehicles\I_APC_Tracked_02_AA_F.jpg","Anti-Air tank patrolling the perimeter!"]],
+      ["text","Radar surrounds the area! Good thing you got this intel to help you. The radar range has been marked on the map. As soon as you are detected, the anti-air tank and the mobile artillery will start looking for you!"],
+      ["text","Take out both tanks first! Two HVT officers are to be eliminated next. The associated squad with them are of no consequence, however good to eliminate them also! If a night approach is prefered, lay down close to your tent and bedroll and take a nap! Have an ammo drop deliver mines, anti-tank rockets, sniper rifles...whatever you need! Get the whole job done before daylight!"],
+      ["author",["Hq8EHMyUsC.paa","Alexis Kouris is a Make Arma Not War Soldier"]]
+    ]
+  ] call BIS_fnc_showAANArticle;
+};
+
+SIR_fnc_Kouris_2 = { // East-Enemy
+  [
+    [
+      ["title","Combat Lightning"],
+      ["meta",["Alexis Kouris",[2035,2,24,11,38],"CET"]],
+      ["textbold","""Might be a good choice to wait until nightfall before starting the approach! The stealthy ticket!"""],
+      ["image",["\A3\Ui_F_Curator\Data\Logos\arma3_curator_artwork.jpg","Combat Lightning"]],
+      ["box",["\A3\EditorPreviews_F\Data\CfgVehicles\O_APC_Tracked_02_AA_F.jpg","Anti-Air tank patrolling the perimeter!"]],
+      ["text","Radar surrounds the area! Good thing you got this intel to help you. The radar range has been marked on the map. As soon as you are detected, the anti-air tank and the mobile artillery will start looking for you!"],
+      ["text","Take out both tanks first! Two HVT officers are to be eliminated next. The associated squad with them are of no consequence, however good to eliminate them also! If a night approach is prefered, lay down close to your tent and bedroll and take a nap! Have an ammo drop deliver mines, anti-tank rockets, sniper rifles...whatever you need! Get the whole job done before daylight!"],
+      ["author",["Hq8EHMyUsC.paa","Alexis Kouris is a Make Arma Not War Soldier"]]
+    ]
+  ] call BIS_fnc_showAANArticle;
+};
+

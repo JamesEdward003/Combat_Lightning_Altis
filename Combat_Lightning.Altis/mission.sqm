@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=1781;
+		nextID=1782;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=364;
+		nextID=369;
 	};
 	class Camera
 	{
-		pos[]={14658.87,37.909912,16794.73};
-		dir[]={-0.81612664,-0.22097993,0.53395241};
-		up[]={-0.18491912,0.97527838,0.12098368};
-		aside[]={0.5474872,0,0.83681405};
+		pos[]={14628.099,25.112288,16779.797};
+		dir[]={-1.7194334e-007,-0.18144418,0.98340136};
+		up[]={-3.172471e-008,0.9834013,0.1814442};
+		aside[]={1.0000001,0,1.7484557e-007};
 	};
 };
 binarizationWanted=0;
@@ -93,13 +93,14 @@ addons[]=
 	"A3_Props_F_Oldman_Items",
 	"A3_Data_F_Curator_Intel",
 	"A3_Structures_F_Heli_Items_Electronics",
-	"A3_Armor_F_Gamma_MBT_02"
+	"A3_Armor_F_Gamma_MBT_02",
+	"A3_Props_F_Enoch_Items_Documents"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=29;
+		items=30;
 		class Item0
 		{
 			className="A3_Modules_F";
@@ -303,6 +304,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item29
+		{
+			className="A3_Props_F_Enoch";
+			name="Arma 3 Contact Platform - Decorative and Mission Objects";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 dlcs[]=
@@ -436,7 +444,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=121;
+		items=122;
 		class Item0
 		{
 			dataType="Logic";
@@ -5560,7 +5568,6 @@ class Mission
 						name="Gambler_1";
 						description="Gambler_1 - Pettka - Squad Leader";
 						isPlayer=1;
-						isPlayable=1;
 						class Inventory
 						{
 							class primaryWeapon
@@ -8401,7 +8408,6 @@ class Mission
 					{
 						skill=1;
 						rank="SERGEANT";
-						init="[""ao_marker"", true, this] execVM ""Z_RandomHousePositionCircleEdge.sqf"";";
 						name="Kouris";
 						description="Scout";
 						isPlayable=1;
@@ -10406,7 +10412,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this attachTo [desk2, [-0.65, 0, .560]]};";
+				init="call{this attachTo [desk2, [-0.65, -0.2, .560]]};";
 				name="BIS_laptop01";
 			};
 			id=442;
@@ -10657,6 +10663,25 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item121
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={14625.998,18.869884,16790.662};
+				angles[]={0,3.9269907,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				init="call{this attachTo [desk2, [-0.65, 0.2, .430]];this setDir ((getDir this) + 315);};";
+				name="News01";
+			};
+			id=1781;
+			type="Newspaper_01_F";
+			atlOffset=0.00025939941;
 		};
 	};
 	class Connections

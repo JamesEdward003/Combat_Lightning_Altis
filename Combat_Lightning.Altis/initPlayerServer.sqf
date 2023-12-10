@@ -10,8 +10,6 @@ _respawnmrkr = switch (playerSide) do {
 	case CIVILIAN: 		{"respawn_civilian_base"};
 };
 
-[missionNamespace,(player modelToWorld [0,0,0]),_respawnmrkr] call BIS_fnc_addRespawnPosition;
-
 [missionnamespace,"arsenalOpened", {
     titletext [format ["Welcome, your role is: %1.", getText(configFile >> "CfgVehicles" >> (typeOf player) >> "displayName")],"PLAIN DOWN"];
 }] call bis_fnc_addScriptedEventhandler;
@@ -333,6 +331,8 @@ kouris execVM "Intel\intel_kouris.sqf";
 
 [BIS_laptop1, localize "STR_A3_Orange_Faction_IDAP_action_article", "\a3\Missions_F_Orange\Data\Img\Showcase_LawsOfWar\action_view_article_ca", "\a3\Missions_F_Orange\Data\Img\Showcase_LawsOfWar\action_view_article_ca", "(_this distance _target < 3) && (isNull (findDisplay 2035))", "isNull (findDisplay 2035)", {}, BIS_holdActionProgress, {BIS_laptop1 say3D "Orange_Read_Article"; [] execVM "\a3\Missions_F_Orange\Campaign\Functions\fn_showCampaignArticle.sqf"}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
 
+[News01, localize "STR_A3_Orange_Faction_IDAP_action_article", "\a3\Missions_F_Orange\Data\Img\Showcase_LawsOfWar\action_view_article_ca", "\a3\Missions_F_Orange\Data\Img\Showcase_LawsOfWar\action_view_article_ca", "(_this distance _target < 3) && (isNull (findDisplay 2035))", "isNull (findDisplay 2035)", {}, BIS_holdActionProgress, {BIS_laptop1 say3D "Orange_Read_Article"; [] execVM "\a3\Missions_F_Orange\Campaign\Functions\fn_showCampaignArticle.sqf"}, {}, [], 0.5, nil, false] call BIS_fnc_holdActionAdd;
+
 //[[displayTV02,displayLaptop02]] execVM "MIL_Mirror\initialise.sqf";
 
 private _toRemoteExec = {  
@@ -377,6 +377,9 @@ private _toRemoteExec = {
 	] call BIS_fnc_holdActionAdd;
 };  
 [[], _toRemoteExec] remoteExec ["spawn", 0, supph2];   
+
+[missionNamespace,(player modelToWorld [0,0,0]),_respawnmrkr] call BIS_fnc_addRespawnPosition;
+
 //[supph2, radioHackHoldActionId] remoteExec ["BIS_fnc_holdActionRemove", 0];
 /*
 private _toRemoteExec = {  

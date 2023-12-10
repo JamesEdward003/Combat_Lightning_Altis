@@ -115,7 +115,7 @@ if (("BI_CP_startLocation" call BIS_fnc_getParamValue) isEqualTo 1) then {
 
 	if (("BIS_CP_locationSelection" call BIS_fnc_getParamValue) isEqualTo 0) then {
 	["<t color='#FFCC33' size='1.2'>You have selected the Base Start parameter.<br />You are being teleported to the target location first.<br />Select your target location!</t>",0,.01,10,1] spawn BIS_fnc_dynamicText;
-	};
+};
 
 fnc_teleportGroup = 
 {
@@ -252,6 +252,15 @@ for "_i" from 0 to count _pads - 1 do
 	_markerstr = createMarkerLocal [_markername,position _pad];
 	_markerstr setMarkerShapeLocal "ICON";
 	_markerstr setMarkerTypeLocal "c_air";
+};
+
+["ao_marker", true, kouris] execVM "Z_RandomHousePositionCircleEdge.sqf";
+
+uisleep 10;
+
+if (kouris distance uss_freedom < 200) then {
+
+	["ao_marker", true, kouris] execVM "Z_RandomHousePositionCircleEdge.sqf";
 };
 
 /*

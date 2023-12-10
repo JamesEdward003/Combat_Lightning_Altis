@@ -11,7 +11,7 @@ _validUnits = [];
         _validUnits = _validUnits + [_x];
     };
 } forEach _units;
-//hint format ["%1",_validUnits];
+hint format ["%1",_validUnits];
 _count = count _validUnits;
 if (_count == 0) exitWith {};
 
