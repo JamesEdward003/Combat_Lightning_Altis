@@ -4,7 +4,6 @@ uav_west=objNull;publicVariable "uav_west";
 uav_east=objNull;publicVariable "uav_east";
 uav_guer=objNull;publicVariable "uav_guer";
 uav_civ=objNull;publicVariable "uav_civ";
-myLeaflet=objNull;publicVariable "myLeaflet";
 
 [playerSide, "HQ"] commandChat "Initiating v2023.12.01";
 
@@ -34,8 +33,6 @@ addMissionEventHandler ["EntityCreated", {
 addMissionEventHandler ["EntityCreated", {
 	params ["_entity"];
 	if ((_entity isKindOf "CAR") OR (_entity isKindOf "TANK") OR (_entity isKindOf "AIR")) then {
-		[_entity] execVM "ParamsPlus\vehicleMarker.sqf";
-		[_entity] execVM "ParamsPlus\heliBombs.sqf";
 		_entity setVehicleAmmo 1;
 		_entity setFuel 1;
 		_entity setAmmoCargo 1;

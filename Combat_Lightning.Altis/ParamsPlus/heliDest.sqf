@@ -99,7 +99,7 @@ if !(("<t color='#00FFFF'>Map Destination</t>") in _array) then {
 		_CampFire = createVehicle ["Campfire_burning_F", _position, [], 0, "CAN_COLLIDE"];
 		_CampFire setVehiclePosition [_position, [], 0, "CAN_COLLIDE"];
 		_CampFireID = _CampFire call BIS_fnc_netId;
-		_heliPad = createVehicle ["Land_HelipadCircle_F", _CampFire modelToWorld [0,-3,0], [], 0, "CAN_COLLIDE"];
+		_heliPad = createVehicle ["Land_HelipadEmpty_F", _CampFire modelToWorld [0,-3,0], [], 0, "CAN_COLLIDE"];
 		_heliPad setVehiclePosition [_CampFire modelToWorld [0,-3,0], [], 0, "CAN_COLLIDE"];
 		_heliPadID = _heliPad call BIS_fnc_netId;
 		missionNamespace setVariable [_airName,[_CampFireID,_heliPadID]];

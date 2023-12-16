@@ -198,7 +198,7 @@ for "_i" from count waypoints (_ch select 2) - 1 to 0 step -1 do
 _CampFire = createVehicle ["Sign_Arrow_Large_F", _position, [], 0, "CAN_COLLIDE"]; // Campfire_burning_F ProtectionZone_F
 _CampFire setVehiclePosition [_position, [], 0, "CAN_COLLIDE"];
 _CampFireID = _CampFire call BIS_fnc_netId;
-_heliPad = createVehicle ["Sign_Arrow_Large_F", _CampFire modelToWorld [0,-3,60], [], 0, "CAN_COLLIDE"]; // Land_HelipadCircle_F
+_heliPad = createVehicle ["Land_HelipadEmpty_F", _CampFire modelToWorld [0,-3,60], [], 0, "CAN_COLLIDE"]; // Land_HelipadCircle_F
 _heliPad setVehiclePosition [_CampFire modelToWorld [0,-3,60], [], 0, "CAN_COLLIDE"];
 _heliPadID = _heliPad call BIS_fnc_netId;
 

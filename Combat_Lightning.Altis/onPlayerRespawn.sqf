@@ -56,4 +56,4 @@ if (("FirstAidKit" in items player) or {("Medikit" in items _this)}) then
 			true
 			] 
 		call bis_fnc_holdActionAdd;
-		};﻿
+		};

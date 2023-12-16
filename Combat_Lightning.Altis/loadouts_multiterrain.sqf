@@ -81,7 +81,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "I_E_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_14","male11eng"] call BIS_fnc_setIdentity;
@@ -147,7 +147,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_19","male11eng"] call BIS_fnc_setIdentity;
@@ -213,7 +213,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "I_E_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"AsianHead_A3_01","male04eng"] call BIS_fnc_setIdentity;
@@ -278,7 +278,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_16","male08eng"] call BIS_fnc_setIdentity;
@@ -343,7 +343,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ChemicalDetector_01_watch_F";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_10","male05eng"] call BIS_fnc_setIdentity;
@@ -410,7 +410,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_18","male06eng"] call BIS_fnc_setIdentity;
@@ -475,7 +475,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ChemicalDetector_01_watch_F";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"AfricanHead_03","male10eng"] call BIS_fnc_setIdentity;
@@ -539,7 +539,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"AfricanHead_02","male02eng"] call BIS_fnc_setIdentity;
@@ -619,7 +619,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_19","male02eng"] call BIS_fnc_setIdentity;
@@ -684,7 +684,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "I_E_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_08","male11eng"] call BIS_fnc_setIdentity;
@@ -746,7 +746,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "I_E_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_17","male09eng"] call BIS_fnc_setIdentity;
@@ -811,7 +811,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "I_E_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_15","male08eng"] call BIS_fnc_setIdentity;
@@ -878,7 +878,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "I_E_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_14","male09eng"] call BIS_fnc_setIdentity;
@@ -944,7 +944,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "I_E_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_14","male09eng"] call BIS_fnc_setIdentity;
@@ -1010,7 +1010,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "I_E_UavTerminal";
-_unit linkItem "O_NVGoggles_grn_F";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_17","male06eng"] call BIS_fnc_setIdentity;
@@ -1440,7 +1440,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"Whitehead_02","male11eng"] call BIS_fnc_setIdentity;
@@ -1509,7 +1509,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_04","male06eng"] call BIS_fnc_setIdentity;
@@ -1578,7 +1578,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_03","male05eng"] call BIS_fnc_setIdentity;
@@ -1634,8 +1634,8 @@ _unit addItemToBackpack "Titan_AT";
 for "_i" from 1 to 2 do {_unit addItemToBackpack "Titan_AP";};
 for "_i" from 1 to 4 do {_unit addItemToBackpack "SmokeShellOrange";};
 for "_i" from 1 to 2 do {_unit addItemToBackpack "DemoCharge_Remote_Mag";};
-_unit addHeadgear "H_HelmetB";
-_unit addGoggles "G_Combat";
+_unit addHeadgear "H_Beret_02";
+_unit addGoggles "G_Goggles_VR";
 
 comment "Add items";
 _unit linkItem "ItemMap";
@@ -1709,7 +1709,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_22_a","male11eng"] call BIS_fnc_setIdentity;
@@ -1776,7 +1776,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_07","male08eng"] call BIS_fnc_setIdentity;
@@ -1841,7 +1841,7 @@ _unit linkItem "ItemMap";
 _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_11","male02engb"] call BIS_fnc_setIdentity;
@@ -1908,7 +1908,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_06","male11eng"] call BIS_fnc_setIdentity;
@@ -1977,7 +1977,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_08","male09eng"] call BIS_fnc_setIdentity;
@@ -2038,7 +2038,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"WhiteHead_17","male11eng"] call BIS_fnc_setIdentity;
@@ -2100,7 +2100,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"Dwarden","male11eng"] call BIS_fnc_setIdentity; // Dwarden // Default 
@@ -2164,7 +2164,7 @@ _unit linkItem "ItemCompass";
 _unit linkItem "ItemWatch";
 _unit linkItem "ItemRadio";
 _unit linkItem "B_UavTerminal";
-_unit linkItem "NVGoggles_OPFOR";
+_unit linkItem "NVGoggles";
 
 comment "Set identity";
 [_unit,"Dwarden","male11eng"] call BIS_fnc_setIdentity; // Dwarden // Default

@@ -5,7 +5,7 @@ params ["_unit"];
 
 waitUntil { !isNil {_unit getVariable "LoadoutDone"} };
 
-_nvList = ["NVGoggles","NVGoggles_INDEP","NVGoggles_OPFOR","NVGoggles_tna_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","O_NVGoggles_ghex_F","O_NVGoggles_grn_F","O_NVGoggles_hex_F","O_NVGoggles_urb_F","Integrated_NVG_F","Integrated_NVG_TI_0_F","Integrated_NVG_TI_1_F"];
+_nvList = ["NVGoggles","NVGoggles_INDEP","NVGoggles_OPFOR","NVGoggles_tna_F","NVGogglesB_blk_F","NVGogglesB_grn_F","NVGogglesB_gry_F","O_NVGoggles_ghex_F","NVGoggles","O_NVGoggles_hex_F","O_NVGoggles_urb_F","Integrated_NVG_F","Integrated_NVG_TI_0_F","Integrated_NVG_TI_1_F"];
 // NV - Standardize usage among team to simplify add and remove night and day.
 
 _muzzleList = ["muzzle_snds_H","muzzle_snds_L","muzzle_snds_M","muzzle_snds_B","muzzle_snds_H_MG","muzzle_snds_H_SW","muzzle_snds_acp","muzzle_snds_338_black","muzzle_snds_338_green","muzzle_snds_338_sand","muzzle_snds_93mmg","muzzle_snds_93mmg_tan","muzzle_snds_570","muzzle_snds_H_khk_F","muzzle_snds_H_snd_F","muzzle_snds_m_khk_F","muzzle_snds_m_snd_F","muzzle_snds_58_blk_F","muzzle_snds_58_wdm_F","muzzle_snds_58_ghex_F","muzzle_snds_58_hex_F","muzzle_snds_B_khk_F","muzzle_snds_B_snd_F","muzzle_snds_65_TI_blk_F","muzzle_snds_65_TI_hex_F","muzzle_snds_65_TI_ghex_F","muzzle_snds_H_MG_blk_F","muzzle_snds_H_MG_khk_F","muzzle_snds_B_lush_F","muzzle_snds_B_arid_F"];
@@ -34,11 +34,11 @@ if (!(isPlayer _unit)) then {
 
 if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo true) then // day time == true
 {
-	if (([_unit, "G_B_Diving"] call BIS_fnc_hasItem) isEqualTo true) then {
+	if (([_unit, "G_Diving"] call BIS_fnc_hasItem) isEqualTo true) then {
 		
-		_unit unassignItem "G_B_Diving";
-		_unit unLinkItem "G_B_Diving";
-		_unit removeItem "G_B_Diving";
+		_unit unassignItem "G_Diving";
+		_unit unLinkItem "G_Diving";
+		_unit removeItem "G_Diving";
 		_unit addItem "G_Goggles_VR";
 		_unit assignItem "G_Goggles_VR";
 		_unit linkItem "G_Goggles_VR";		
@@ -69,15 +69,15 @@ if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayT
 		_unit unassignItem "G_Goggles_VR";
 		_unit unLinkItem "G_Goggles_VR";
 		_unit removeItem "G_Goggles_VR";
-		_unit addItem "G_B_Diving";
-		_unit assignItem "G_B_Diving";	
-		_unit linkItem "G_B_Diving";
+		_unit addItem "G_Diving";
+		_unit assignItem "G_Diving";	
+		_unit linkItem "G_Diving";
 	};
-	if (([_unit, "O_NVGoggles_grn_F"] call BIS_fnc_hasItem) isEqualTo false) then {
+	if (([_unit, "NVGoggles"] call BIS_fnc_hasItem) isEqualTo false) then {
 
-		_unit addItem "O_NVGoggles_grn_F";
-		_unit assignItem "O_NVGoggles_grn_F";
-		_unit linkItem "O_NVGoggles_grn_F";		
+		_unit addItem "NVGoggles";
+		_unit assignItem "NVGoggles";
+		_unit linkItem "NVGoggles";		
 	};	
 	if (([_unit, "muzzle_snds_H"] call BIS_fnc_hasItem) isEqualTo false) then {
 			
@@ -104,6 +104,8 @@ if (isMultiPlayer) then
 };
 
 _unit setVariable ["LoadoutAdjustmentsDone", true];
+
+if (((dayTime > ((date call BIS_fnc_sunriseSunsetTime) select 0) - 0.5) && (dayTime < ((date call BIS_fnc_sunriseSunsetTime) select 1) + 0.5)) isEqualTo false) then {_unit action ["nvGoggles", _unit]};
 
 if (isPlayer _unit) then {
 

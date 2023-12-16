@@ -67,6 +67,10 @@ call compile preprocessFileLineNumbers "mortarBag.sqf";
 
 call compile preprocessFileLineNumbers "group_manager.sqf";
 
+call compile preprocessFileLineNumbers "fullScreenNV.sqf";
+
+//call compile preprocessFileLineNumbers "lsd_nvg\init.sqf";
+
 call compile preprocessFileLineNumbers "Holster__Weapon.sqf";
 
 if ( "Artillery" call BIS_fnc_getParamValue isEqualTo 2 ) then

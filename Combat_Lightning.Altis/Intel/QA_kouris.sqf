@@ -36,6 +36,7 @@ if !(("<t color='#00FFFF'>Talk</t>") in _array) then {
         _result call BIS_fnc_guiMessage;
         //hint format ["%1",_result];
       if ((_result call BIS_fnc_guiMessage) isEqualTo true) then {
+        private _result = ["Are you sure?", "Confirm", true, true] call BIS_fnc_guiMessage;
         _target setUnitRank "CORPORAL";
         _target forceSpeed (_target getSpeed "FAST");
         [_target] joinSilent (group _caller);

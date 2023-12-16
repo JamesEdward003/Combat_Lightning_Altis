@@ -149,7 +149,6 @@ switch (playerSide) do
 		
 		waituntil {(moveToCompleted _Member or _Member distance _Player <= 2) and (lifeState _Player == "incapacitated" or damage _Player > 0)};
 		//_Member     disableAi "AUTOCOMBAT";
-		_Member		lookAt _Player;
 		_Member		setSpeedMode "NORMAL";
 		_Member 	setUnitPos "MIDDLE";
 		_Member 	action ["HealSoldier", _Player];
@@ -229,7 +228,6 @@ switch (playerSide) do
 
 			waituntil {(moveToCompleted _Member or _Member distance _Player <= 2) and (lifeState _Player == "incapacitated" or damage _Player > 0)};
 			//_Member     disableAi "AUTOCOMBAT";
-			_Member		lookAt _Player;
 			_Member		setSpeedMode "NORMAL";
 			_Member 	setUnitPos "MIDDLE";
 			_Member 	action ["HealSoldier", _Player];
